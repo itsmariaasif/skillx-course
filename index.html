@@ -1,0 +1,1537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="dark" />
+<meta name="description" content="SkillX Course — Notes by Maria Asif. 100% free live classes. Enroll, verify and read the full 14-chapter Notes Book." />
+<link rel="icon" href="data:," />
+<title>SkillX Course — Notes by Maria Asif</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#060606; --bg2:#0b0b0b; --card:#111111; --card2:#161616;
+  --line:#242424; --line2:#2e2e2e;
+  --lime:#B6F34A; --lime2:#9ede2e; --lime-soft:rgba(182,243,74,.12);
+  --ink:#f4f4f2; --silver:#d7d7d7; --muted:#a8a8a8; --dim:#8a8a8a;
+  --danger:#ff7a7a; --ok:#B6F34A;
+  --r-lg:18px; --r-md:14px; --r-sm:10px;
+  --shadow:0 18px 50px rgba(0,0,0,.55);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--lime)}
+button{font:inherit;cursor:pointer}
+input,select,textarea{font:inherit;color:var(--ink)}
+::selection{background:var(--lime);color:#0a0a0a}
+:focus-visible{outline:2px solid var(--lime);outline-offset:2px;border-radius:4px}
+
+.wordmark{font-weight:900;letter-spacing:-.02em;line-height:1}
+.wordmark .s,.wordmark .x{color:var(--lime)}
+.wordmark .mid{color:#ededed}
+.lime{color:var(--lime)}
+.muted{color:var(--muted)}
+.small{font-size:13.5px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{line-height:1.2;margin:0}
+h2.sec{font-size:clamp(24px,3.4vw,32px);font-weight:800;letter-spacing:-.01em}
+.sec-sub{color:var(--muted);margin:8px 0 0;max-width:640px}
+.sec-head{margin-bottom:22px}
+.sec-head .kicker{color:var(--lime);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+section.block{padding:56px 0}
+hr.sep{border:0;border-top:1px solid var(--line);margin:0}
+
+/* scroll progress */
+#progressBar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--lime);z-index:200;box-shadow:0 0 12px rgba(182,243,74,.7)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  *{animation:none!important;transition:none!important}
+}
+
+/* ---------- GATE ---------- */
+#gateView{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:36px 0 64px;background:radial-gradient(700px 340px at 15% -5%,rgba(182,243,74,.14),transparent 60%),radial-gradient(600px 300px at 95% 10%,rgba(182,243,74,.08),transparent 55%),var(--bg)}
+.gate-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:start}
+.brand-panel{padding:14px 4px}
+.logo-img{width:118px;height:118px;object-fit:cover;border-radius:22px;border:1px solid var(--line2);box-shadow:var(--shadow);background:#000}
+.gate-title{font-size:clamp(42px,6vw,62px);margin:18px 0 6px}
+.gate-tag{font-size:18px;color:var(--silver);margin:0 0 18px}
+.credit{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:12px 14px;margin:0 0 14px}
+.credit img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--lime)}
+.credit b{display:block;font-size:16px}
+.credit span{color:var(--muted);font-size:13.5px}
+.free-badge{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#0b0b0b;font-weight:800;padding:9px 16px;border-radius:999px;font-size:15px;margin:4px 0 16px}
+.free-badge .dot{width:8px;height:8px;border-radius:50%;background:#0b0b0b}
+.teaser{border-left:3px solid var(--lime);padding:10px 14px;background:var(--lime-soft);border-radius:0 12px 12px 0;color:var(--silver);font-size:15px;margin:0 0 16px}
+.gate-points{list-style:none;margin:0 0 18px;padding:0;display:grid;gap:8px;color:var(--silver);font-size:15px}
+.gate-points li::before{content:"✓";color:var(--lime);font-weight:800;margin-right:9px}
+.gate-contacts{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:12px 20px;font-weight:700;font-size:15px;border:1px solid transparent;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease,background .15s ease,border-color .15s ease}
+.btn:active{transform:translateY(1px)}
+.btn-lime{background:var(--lime);color:#0b0b0b}
+.btn-lime:hover{background:var(--lime2);box-shadow:0 8px 26px rgba(182,243,74,.35)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line2)}
+.btn-ghost:hover{border-color:var(--lime);color:var(--lime)}
+.btn-dark{background:#1c1c1c;color:var(--ink);border-color:var(--line2)}
+.btn-sm{padding:9px 15px;font-size:14px}
+.btn-block{width:100%}
+
+.form-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow);position:sticky;top:24px}
+.tabs{display:flex;background:#0a0a0a;border:1px solid var(--line);border-radius:999px;padding:4px;margin-bottom:20px}
+.tabs button{flex:1;border:0;background:transparent;color:var(--muted);font-weight:700;padding:10px;border-radius:999px}
+.tabs button[aria-selected="true"]{background:var(--lime);color:#0b0b0b}
+.field{margin-bottom:14px}
+.field label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+.field label span{color:var(--muted);font-weight:400}
+.field input,.field select,.field textarea{width:100%;background:#0a0a0a;border:1px solid var(--line2);border-radius:var(--r-sm);padding:12px 13px;font-size:15px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--lime);outline:none;box-shadow:0 0 0 3px rgba(182,243,74,.18)}
+.field .hint{color:var(--dim);font-size:12.5px;margin-top:5px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pass-wrap{position:relative}
+.pass-wrap input{padding-right:86px}
+.pass-wrap button{position:absolute;right:6px;top:50%;transform:translateY(-50%);background:#1d1d1d;border:1px solid var(--line2);color:var(--silver);border-radius:999px;padding:7px 12px;font-size:13px;font-weight:600}
+.form-err{display:none;background:rgba(255,122,122,.1);border:1px solid rgba(255,122,122,.5);color:#ffb3b3;border-radius:var(--r-sm);padding:10px 12px;font-size:14px;margin-bottom:14px}
+.form-err.show{display:block}
+.form-ok{display:none;background:var(--lime-soft);border:1px solid rgba(182,243,74,.5);color:#dff5b0;border-radius:var(--r-sm);padding:10px 12px;font-size:14px;margin-bottom:14px}
+.form-ok.show{display:block}
+.device-note{color:var(--dim);font-size:12.5px;text-align:center;margin-top:12px}
+
+/* verify */
+.verify-box{border:1px dashed rgba(182,243,74,.6);background:#0d1206;border-radius:var(--r-md);padding:18px;text-align:center;margin-bottom:16px}
+
+/* confirm enrollment */
+.confirm-step{color:var(--lime);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.confirm-title{font-size:23px;font-weight:800;margin:0 0 8px}
+.confirm-panel p.lead{color:var(--silver);font-size:15px;margin:0 0 16px}
+.confirm-summary{background:#0a0a0a;border:1px solid var(--line2);border-radius:var(--r-md);padding:14px 16px;margin:0 0 18px;display:grid;gap:7px;font-size:14.5px}
+.confirm-summary div{display:flex;justify-content:space-between;gap:14px}
+.confirm-summary dt{color:var(--muted)}
+.confirm-summary dd{margin:0;font-weight:600;text-align:right;overflow-wrap:anywhere}
+.confirm-actions{display:grid;gap:10px}
+.confirm-wa{font-size:16px;padding:14px 20px}
+.confirm-sent{display:none;background:var(--lime-soft);border:1px solid rgba(182,243,74,.5);color:#dff5b0;border-radius:var(--r-sm);padding:10px 12px;font-size:14px;margin:14px 0 0}
+.confirm-sent.show{display:block}
+.confirm-helper{color:var(--dim);font-size:12.5px;text-align:center;margin:10px 0 0}
+.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.btn:disabled:hover{box-shadow:none}
+.verify-box .code{font-size:38px;font-weight:900;letter-spacing:.35em;color:var(--lime);margin:6px 0 2px;font-variant-numeric:tabular-nums}
+.verify-box p{margin:4px 0;color:var(--silver);font-size:14px}
+#verifyCodeInput{letter-spacing:.35em;text-align:center;font-size:22px;font-weight:800}
+.linklike{background:none;border:0;color:var(--lime);font-weight:600;padding:0;text-decoration:underline}
+
+/* ---------- APP / NAV ---------- */
+#appView{display:none}
+.topnav{position:sticky;top:0;z-index:100;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topnav-inner{display:flex;align-items:center;gap:18px;padding:11px 0}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.nav-brand img{width:38px;height:38px;border-radius:9px;object-fit:cover;border:1px solid var(--line2)}
+.nav-brand .wordmark{font-size:24px}
+.nav-links{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.nav-links a{color:var(--silver);text-decoration:none;font-size:14px;font-weight:600;padding:8px 11px;border-radius:999px}
+.nav-links a:hover{color:var(--lime);background:#141414}
+.nav-user{display:flex;align-items:center;gap:10px;margin-left:6px}
+.nav-user .hello{font-size:14px;color:var(--silver);white-space:nowrap}
+.nav-user .hello b{color:var(--ink)}
+
+/* hero */
+.hero{padding:52px 0 8px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:stretch}
+.hero h1{font-size:clamp(34px,4.6vw,52px);font-weight:900;letter-spacing:-.02em;margin:10px 0 12px}
+.hero p.lead{color:var(--silver);font-size:17px;margin:0 0 20px;max-width:560px}
+.pill{display:inline-block;background:var(--lime-soft);border:1px solid rgba(182,243,74,.4);color:var(--lime);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:7px 13px;border-radius:999px}
+.countdown{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 20px;margin:0 0 18px}
+.countdown .lbl{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.countdown .time{display:flex;gap:10px;margin-top:10px}
+.cd-cell{flex:1;background:#0a0a0a;border:1px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center}
+.cd-cell b{display:block;font-size:30px;font-weight:900;font-variant-numeric:tabular-nums;color:var(--lime);line-height:1.1}
+.cd-cell span{font-size:12px;color:var(--muted)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:14px}
+.stat b{display:block;font-size:24px;font-weight:900;color:var(--lime)}
+.stat span{font-size:13px;color:var(--muted)}
+
+.owner-card{background:linear-gradient(160deg,#151505,#101010 55%);border:1px solid rgba(182,243,74,.35);border-radius:20px;padding:24px;box-shadow:var(--shadow)}
+.owner-card .oc-top{display:flex;gap:16px;align-items:center}
+.owner-card img{width:92px;height:92px;border-radius:50%;object-fit:cover;border:3px solid var(--lime);flex:none}
+.owner-card h3{font-size:22px}
+.owner-card .role{color:var(--lime);font-weight:700;font-size:14px;margin-top:3px}
+.owner-card ul{list-style:none;margin:16px 0;padding:0;display:grid;gap:8px;color:var(--silver);font-size:14.5px}
+.owner-card ul li b{color:var(--ink)}
+.owner-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+
+/* notes book */
+.notes-shell{display:grid;grid-template-columns:290px 1fr;gap:18px;align-items:start}
+.chapter-list{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:12px;position:sticky;top:76px;max-height:calc(100vh - 100px);overflow:auto}
+.chapter-list h3{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:6px 8px 10px}
+.ch-btn{display:flex;gap:10px;width:100%;text-align:left;background:transparent;border:1px solid transparent;color:var(--silver);border-radius:11px;padding:10px 11px;font-size:14px;font-weight:600;align-items:flex-start}
+.ch-btn:hover{background:#191919;color:var(--ink)}
+.ch-btn[aria-current="true"]{background:var(--lime-soft);border-color:rgba(182,243,74,.45);color:var(--ink)}
+.ch-btn .n{color:var(--lime);font-weight:800;flex:none;font-variant-numeric:tabular-nums}
+.ch-btn .done{margin-left:auto;color:var(--lime);flex:none}
+.progress-wrap{margin:0 0 16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px}
+.progress-wrap .row{display:flex;justify-content:space-between;font-size:14px;color:var(--silver)}
+.progress-wrap .row b{color:var(--lime)}
+.pbar{height:9px;background:#1e1e1e;border-radius:999px;margin-top:9px;overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:var(--lime);border-radius:999px;transition:width .4s ease}
+.reader{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 30px 24px;min-height:420px}
+.reader article{display:none}
+.reader article.active{display:block;animation:fadein .35s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.reader h3{font-size:26px;font-weight:800;margin-bottom:4px}
+.reader .ch-kicker{color:var(--lime);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.reader p,.reader li{color:#d9d9d9;font-size:16px}
+.reader h4{color:var(--ink);font-size:17px;margin:22px 0 8px}
+.reader ul,.reader ol{padding-left:22px}
+.reader li{margin-bottom:7px}
+.reader .callout{background:var(--lime-soft);border:1px solid rgba(182,243,74,.35);border-radius:12px;padding:13px 15px;color:#eaf7cd;font-size:15px;margin:16px 0}
+.reader .prompt-box{background:#0a0a0a;border:1px solid var(--line2);border-left:3px solid var(--lime);border-radius:10px;padding:13px 15px;font-size:15px;color:var(--silver);margin:12px 0}
+.reader .formula{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:16px 0}
+.reader .formula div{background:#0a0a0a;border:1px solid var(--line2);border-radius:11px;padding:11px 8px;text-align:center;font-size:13.5px;font-weight:700}
+.reader .formula div span{display:block;color:var(--lime);font-size:19px;margin-bottom:3px}
+.reader-nav{display:flex;justify-content:space-between;gap:10px;margin-top:26px;flex-wrap:wrap}
+.mark-btn{display:inline-flex;gap:8px;align-items:center;background:#1c1c1c;border:1px solid var(--line2);color:var(--ink);border-radius:999px;padding:10px 17px;font-weight:700;font-size:14px}
+.mark-btn.read{background:var(--lime);color:#0b0b0b;border-color:var(--lime)}
+
+/* learn / highlights */
+.chip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.chip-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:18px;transition:border-color .2s ease,transform .2s ease}
+.chip-card:hover{border-color:rgba(182,243,74,.55);transform:translateY(-2px)}
+.chip-card .ico{width:42px;height:42px;border-radius:12px;background:var(--lime-soft);border:1px solid rgba(182,243,74,.35);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:11px}
+.chip-card h3{font-size:16.5px;margin-bottom:5px}
+.chip-card p{margin:0;color:var(--muted);font-size:14.5px}
+
+/* journey */
+.journey{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
+.j-step{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;position:relative}
+.j-step .wk{color:var(--lime);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.j-step h3{font-size:18px;margin:7px 0 6px}
+.j-step .dates{color:var(--muted);font-size:13.5px;font-weight:600}
+.j-step p{color:var(--silver);font-size:14.5px;margin:9px 0 0}
+.j-step .num{position:absolute;top:-13px;right:16px;background:var(--lime);color:#0b0b0b;font-weight:900;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px}
+
+/* schedule */
+.week-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.week-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px}
+.week-card h3{font-size:18px}
+.week-card .dates{color:var(--lime);font-weight:700;font-size:13.5px;margin-top:3px}
+.day-row{display:grid;grid-template-columns:52px 1fr;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:14.5px}
+.day-row:first-of-type{border-top:0}
+.day-row .d{font-weight:800;color:var(--silver);font-size:13px;padding-top:2px}
+.day-row .t b{display:block;color:var(--ink);font-size:14.5px}
+.day-row .t span{color:var(--muted);font-size:13.5px}
+.day-row.off .t b{color:var(--muted)}
+
+/* tools */
+.tools-strip{display:flex;flex-wrap:wrap;gap:10px}
+.tool-chip{display:inline-flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:11px 18px;font-weight:700;font-size:15px}
+.tool-chip i{width:9px;height:9px;border-radius:50%;background:var(--lime);flex:none}
+
+/* quiz */
+.quiz-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px}
+.q-block{padding:18px 0;border-top:1px solid var(--line)}
+.q-block:first-of-type{border-top:0;padding-top:4px}
+.q-block p.q{font-weight:700;font-size:16.5px;margin:0 0 11px}
+.q-opts{display:grid;gap:8px}
+.q-opts label{display:flex;gap:10px;align-items:flex-start;background:#0d0d0d;border:1px solid var(--line2);border-radius:11px;padding:11px 13px;font-size:15px;cursor:pointer;color:var(--silver)}
+.q-opts label:hover{border-color:var(--lime)}
+.q-opts input{accent-color:var(--lime);margin-top:3px}
+.q-opts label.correct{border-color:var(--lime);background:var(--lime-soft);color:var(--ink)}
+.q-opts label.wrong{border-color:var(--danger);background:rgba(255,122,122,.07)}
+.q-expl{display:none;color:var(--muted);font-size:14px;margin-top:9px}
+.q-expl.show{display:block}
+.quiz-result{display:none;background:var(--lime-soft);border:1px solid rgba(182,243,74,.5);border-radius:var(--r-md);padding:16px 18px;margin-top:16px;font-size:16px}
+.quiz-result.show{display:block}
+
+/* comments */
+.comments-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.comment-form{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px}
+.stars{display:flex;gap:6px;margin:4px 0 2px}
+.star-btn{background:#0d0d0d;border:1px solid var(--line2);color:var(--silver);width:44px;height:44px;border-radius:11px;font-size:21px;line-height:1}
+.star-btn[aria-pressed="true"]{background:var(--lime);color:#0b0b0b;border-color:var(--lime)}
+.comment-list{display:grid;gap:12px}
+.comment-item{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:16px 18px}
+.comment-item .meta{display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:5px}
+.comment-item .meta b{color:var(--ink)}
+.comment-item .meta span{color:var(--lime);letter-spacing:.1em}
+.comment-item p{margin:0;color:var(--silver);font-size:15px}
+.empty-note{border:1px dashed var(--line2);border-radius:var(--r-md);padding:20px;color:var(--muted);font-size:14.5px;text-align:center}
+
+/* faq */
+details.faq{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:17px 19px;margin-bottom:11px}
+details.faq summary{font-weight:700;font-size:16px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";color:var(--lime);font-size:22px;font-weight:800;flex:none}
+details.faq[open ] summary::after{content:"–"}
+details.faq p{color:var(--muted);margin:10px 0 2px;font-size:15px}
+
+/* 2.0 */
+.coming{background:linear-gradient(150deg,#171703,#0d0d0d 60%);border:1px solid rgba(182,243,74,.4);border-radius:22px;padding:30px;position:relative;overflow:hidden}
+.coming .badge{position:absolute;top:20px;right:20px;background:var(--lime);color:#0b0b0b;font-weight:900;letter-spacing:.1em;padding:8px 14px;border-radius:999px;font-size:13px;transform:rotate(3deg)}
+.coming h2{font-size:clamp(26px,3.6vw,36px);font-weight:900;margin:8px 0 10px;max-width:640px}
+.coming p{color:var(--silver);max-width:620px;margin:0 0 16px}
+.coming ul{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:9px;color:var(--silver)}
+.coming ul li::before{content:"→";color:var(--lime);font-weight:800;margin-right:9px}
+.price-line{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:20px}
+.price-line div b{display:block;font-size:22px;color:var(--lime)}
+.price-line div span{color:var(--muted);font-size:13px}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:34px 0 110px;color:var(--muted);font-size:14px}
+.foot-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot-grid b{color:var(--ink)}
+
+/* mobile sticky bar + back to top */
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:150;background:rgba(10,10,10,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line2);display:none;padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:9px}
+.mobile-bar a,.mobile-bar button{flex:1;text-align:center;text-decoration:none;font-weight:700;font-size:14.5px;padding:12px 6px;border-radius:999px}
+.mb-call{background:#1d1d1d;color:var(--ink);border:1px solid var(--line2)}
+.mb-wa{background:#1d1d1d;color:var(--ink);border:1px solid var(--line2)}
+.mb-enroll{background:var(--lime);color:#0b0b0b;border:0}
+#toTop{position:fixed;right:16px;bottom:86px;z-index:140;width:46px;height:46px;border-radius:50%;background:var(--lime);color:#0b0b0b;border:0;font-size:20px;font-weight:900;box-shadow:0 10px 26px rgba(0,0,0,.5);display:none;align-items:center;justify-content:center}
+#toTop.show{display:flex}
+
+@media (max-width:900px){
+  .gate-grid{grid-template-columns:1fr}
+  .form-card{position:static}
+  .hero-grid{grid-template-columns:1fr}
+  .notes-shell{grid-template-columns:1fr}
+  .chapter-list{position:static;max-height:none}
+  .chapter-list .list-scroll{display:flex;flex-wrap:wrap;gap:7px}
+  .ch-btn{width:auto;flex:1 1 46%}
+  .journey{grid-template-columns:1fr 1fr}
+  .chip-grid{grid-template-columns:1fr 1fr}
+  .week-grid{grid-template-columns:1fr}
+  .comments-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  body.in-app .mobile-bar{display:flex}
+  .reader .formula{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  section.block{padding:42px 0}
+  .chip-grid{grid-template-columns:1fr}
+  .journey{grid-template-columns:1fr}
+  .field-row{grid-template-columns:1fr}
+  .reader{padding:22px 18px}
+  .stats{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .stat{padding:11px}
+  .stat b{font-size:20px}
+  .coming .badge{position:static;display:inline-block;transform:none;margin-bottom:8px}
+  .cd-cell b{font-size:24px}
+  .gate-title{font-size:40px}
+  .nav-user .hello{display:none}
+  footer{padding-bottom:130px}
+}
+</style>
+</head>
+<body>
+<div id="progressBar" aria-hidden="true"></div>
+
+<!-- ================= GATE / ENROLL ================= -->
+<div id="gateView">
+  <div class="wrap">
+    <div class="gate-grid">
+      <div class="brand-panel reveal in">
+        <img class="logo-img" src="assets/skillx-logo.jpeg" alt="SkillX logo — black background with silver and lime SkillX wordmark" width="118" height="118" />
+        <h1 class="gate-title wordmark"><span class="s">S</span><span class="mid">kill</span><span class="x">X</span> Course</h1>
+        <p class="gate-tag">Live AI classes, practical notes and real skills — all in one place.</p>
+        <div class="credit">
+          <img src="assets/maria-asif.webp" alt="Maria Asif" width="48" height="48" />
+          <div><b>Maria Asif</b><span>Notes Created by Maria Asif · Website Owner &amp; Developer</span></div>
+        </div>
+        <div><span class="free-badge"><span class="dot"></span>100% FREE · NO FEE</span></div>
+        <p class="teaser">Learn from expert mentors — live sessions, real skills, and a complete Notes Book. Enroll, verify, and the full website will open for you.</p>
+        <ul class="gate-points">
+          <li>14-chapter Notes Book — chapter-by-chapter reading</li>
+          <li>4-week course — live classes at 8:30 PM PKT</li>
+          <li>Quiz, schedule, journey map and FAQs</li>
+        </ul>
+        <div class="gate-contacts">
+          <a class="btn btn-ghost btn-sm" href="tel:03342204513">Call: 03342204513</a>
+          <a class="btn btn-ghost btn-sm" href="https://wa.me/923342204513" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-ghost btn-sm" href="mailto:mariaasif854@gmail.com">mariaasif854@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="form-card reveal in" id="formCard">
+        <div class="tabs" role="tablist" aria-label="Enroll or Log In">
+          <button type="button" id="tabEnroll" role="tab" aria-selected="true">Enroll</button>
+          <button type="button" id="tabLogin" role="tab" aria-selected="false">Login</button>
+        </div>
+
+        <!-- ENROLL FORM -->
+        <form id="enrollForm" novalidate>
+          <div class="form-err" id="enrollErr" role="alert"></div>
+          <div class="field">
+            <label for="enName">Your name</label>
+            <input id="enName" name="name" type="text" autocomplete="name" placeholder="Example: Maria Asif" required />
+          </div>
+          <div class="field">
+            <label for="enContact">Google email <span>or</span> mobile number</label>
+            <input id="enContact" name="contact" type="text" autocomplete="username" placeholder="email@example.com or 03xx-xxxxxxx" required />
+            <div class="hint">One of these is required — your account will be created with it.</div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="enCity">City</label>
+              <input id="enCity" name="city" type="text" autocomplete="address-level2" placeholder="Example: Karachi" required />
+            </div>
+            <div class="field">
+              <label for="enTopic">Topic</label>
+              <select id="enTopic" name="topic" required>
+                <option value="">Choose a topic…</option>
+                <option>Prompt Engineering</option>
+                <option>AI Video Creation</option>
+                <option>YouTube Automation</option>
+                <option>TikTok Automation</option>
+                <option>Thumbnails &amp; Design</option>
+                <option>Scriptwriting</option>
+                <option>Digital Products &amp; Etsy</option>
+                <option>Crypto Airdrops</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="enPass">Create your password</label>
+            <div class="pass-wrap">
+              <input id="enPass" name="password" type="password" autocomplete="new-password" placeholder="At least 4 characters" required />
+              <button type="button" data-toggle-pass="enPass">Show</button>
+            </div>
+            <div class="hint">This password is saved only on this device — it is never sent to Maria.</div>
+          </div>
+          <button class="btn btn-lime btn-block" type="submit">Enroll — FREE</button>
+          <p class="device-note">Your account is saved only on this phone/computer. After you enroll, you will confirm your enrollment on WhatsApp or by email — this is how Maria knows you joined. Your password is never sent to Maria.</p>
+        </form>
+
+        <!-- LOGIN FORM -->
+        <form id="loginForm" novalidate hidden>
+          <div class="form-err" id="loginErr" role="alert"></div>
+          <div class="field">
+            <label for="loContact">Google email or mobile number</label>
+            <input id="loContact" name="contact" type="text" autocomplete="username" placeholder="The same email/number you used when you enrolled" required />
+          </div>
+          <div class="field">
+            <label for="loPass">Password</label>
+            <div class="pass-wrap">
+              <input id="loPass" name="password" type="password" autocomplete="current-password" placeholder="Your password" required />
+              <button type="button" data-toggle-pass="loPass">Show</button>
+            </div>
+          </div>
+          <button class="btn btn-lime btn-block" type="submit">Log In</button>
+          <p class="device-note">Not enrolled yet? <button type="button" class="linklike" id="goEnrollLink">Enroll — completely free</button></p>
+        </form>
+
+        <!-- CONFIRM ENROLLMENT -->
+        <div id="confirmPanel" class="confirm-panel" hidden>
+          <div class="confirm-step">Step 2 of 3 — Confirm</div>
+          <h2 class="confirm-title" id="confirmTitle" tabindex="-1">Confirm Your Enrollment</h2>
+          <p class="lead">Tap the button below to send your enrollment to Maria on WhatsApp — she will know you have joined.</p>
+          <dl class="confirm-summary" aria-label="Enrollment details to be sent">
+            <div><dt>Name</dt><dd id="confirmName">—</dd></div>
+            <div><dt>Contact</dt><dd id="confirmContact">—</dd></div>
+            <div><dt>City</dt><dd id="confirmCity">—</dd></div>
+            <div><dt>Topic</dt><dd id="confirmTopic">—</dd></div>
+          </dl>
+          <div class="confirm-actions">
+            <a class="btn btn-lime btn-block confirm-wa" id="confirmWhatsAppBtn" href="https://wa.me/923342204513" target="_blank" rel="noopener">Send on WhatsApp</a>
+            <a class="btn btn-ghost btn-block" id="confirmEmailBtn" href="mailto:mariaasif854@gmail.com">Confirm by Email</a>
+          </div>
+          <p class="confirm-helper">This confirmation is how Maria knows you joined.</p>
+          <div class="confirm-sent" id="confirmSentNote">Thank you — now tap “I Have Sent It — Continue” below to get your verification code.</div>
+          <button class="btn btn-lime btn-block" id="confirmContinueBtn" type="button" disabled style="margin-top:14px">I Have Sent It — Continue</button>
+          <p class="device-note">Only your name, contact, city and topic are sent. Your password is never sent to Maria.</p>
+        </div>
+
+        <!-- VERIFY -->
+        <div id="verifyPanel" hidden>
+          <div class="form-ok show" id="verifyNote">Your account is ready! Enter the 4-digit code below.</div>
+          <div class="verify-box">
+            <p>Your verification code (shown on this page):</p>
+            <div class="code" id="verifyCodeShown">••••</div>
+            <p>Enter this code to verify your account.</p>
+          </div>
+          <form id="verifyForm" novalidate>
+            <div class="form-err" id="verifyErr" role="alert"></div>
+            <div class="field">
+              <label for="verifyCodeInput">4-digit code</label>
+              <input id="verifyCodeInput" inputmode="numeric" autocomplete="one-time-code" maxlength="4" placeholder="••••" required />
+            </div>
+            <button class="btn btn-lime btn-block" type="submit">Verify and open the website</button>
+          </form>
+          <p style="text-align:center;margin:13px 0 0"><button type="button" class="linklike" id="resendCode">Send the code again</button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MAIN SITE (after verify + login) ================= -->
+<div id="appView">
+  <nav class="topnav" aria-label="Main navigation">
+    <div class="wrap topnav-inner">
+      <a class="nav-brand" href="#top">
+        <img src="assets/skillx-logo.jpeg" alt="" width="38" height="38" />
+        <span class="wordmark"><span class="s">S</span><span class="mid">kill</span><span class="x">X</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#notes">Notes Book</a>
+        <a href="#learn">What You Will Learn</a>
+        <a href="#journey">Journey</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#comments">Comments</a>
+        <a href="#faq">FAQ</a>
+        <a href="#coming-soon">2.0</a>
+      </div>
+      <div class="nav-user">
+        <span class="hello">Welcome, <b id="helloName">Student</b></span>
+        <button class="btn btn-ghost btn-sm" id="logoutBtn" type="button">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <!-- HERO -->
+    <header class="hero wrap">
+      <div class="hero-grid">
+        <div class="reveal">
+          <span class="pill">Live Training Program · 05 Oct – 01 Nov 2026</span>
+          <h1><span class="wordmark"><span class="s">S</span><span class="mid">kill</span><span class="x">X</span></span> Course — Notes by Maria Asif</h1>
+          <p class="lead">Complete notes from four weeks of live classes — prompt engineering, AI video, YouTube and TikTok automation, digital products and Etsy — in one Notes Book, written by Maria Asif herself.</p>
+          <div class="countdown" role="timer" aria-label="Next live class countdown">
+            <span class="lbl">Next live class · 8:30 PM PKT</span>
+            <div class="time">
+              <div class="cd-cell"><b id="cdH">00</b><span>Hours</span></div>
+              <div class="cd-cell"><b id="cdM">00</b><span>Minutes</span></div>
+              <div class="cd-cell"><b id="cdS">00</b><span>Seconds</span></div>
+            </div>
+          </div>
+          <div class="hero-cta">
+            <a class="btn btn-lime" href="#notes">Read the Notes Book</a>
+            <a class="btn btn-ghost" href="#schedule">View the Schedule</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>14</b><span>Chapters</span></div>
+            <div class="stat"><b>4</b><span>Weeks</span></div>
+            <div class="stat"><b>100%</b><span>Free · No Fee</span></div>
+          </div>
+        </div>
+
+        <aside class="owner-card reveal" aria-label="Website owner card">
+          <div class="oc-top">
+            <img src="assets/maria-asif.webp" alt="Maria Asif — Website Owner and Developer" width="92" height="92" />
+            <div>
+              <h3>Maria Asif</h3>
+              <div class="role">Website Owner &amp; Developer</div>
+              <div class="small muted">Notes Created by Maria Asif</div>
+            </div>
+          </div>
+          <ul>
+            <li><b>Joint Co-Head of Video Editing</b> — SkillX</li>
+            <li><b>Video Editor &amp; AI Content Creator</b></li>
+            <li>Phone: <b>03342204513</b></li>
+            <li>Email: <b>mariaasif854@gmail.com</b></li>
+          </ul>
+          <div class="owner-actions">
+            <a class="btn btn-lime btn-sm" href="tel:03342204513">Call</a>
+            <a class="btn btn-dark btn-sm" href="https://wa.me/923342204513" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn-dark btn-sm" href="mailto:mariaasif854@gmail.com">Email</a>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <hr class="sep" />
+
+    <!-- NOTES BOOK -->
+    <section class="block wrap" id="notes" aria-label="Notes Book">
+      <div class="sec-head reveal">
+        <div class="kicker">Notes Book</div>
+        <h2 class="sec">The Complete Notes Book — 14 Chapters</h2>
+        <p class="sec-sub">Click any chapter to start reading. When you finish a chapter, select “Mark as read” — your reading progress is saved below.</p>
+      </div>
+      <div class="progress-wrap reveal">
+        <div class="row"><span>Reading progress</span><span><b id="progressText">0 / 14 chapters</b> · <span id="progressPct">0%</span></span></div>
+        <div class="pbar" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="14" aria-valuenow="0" id="pbarWrap"><i id="pbarFill"></i></div>
+      </div>
+      <div class="notes-shell">
+        <div class="chapter-list reveal" aria-label="Chapter list">
+          <h3>Chapters</h3>
+          <div class="list-scroll" id="chapterList"></div>
+        </div>
+        <div class="reader reveal">
+          <div id="readerBody">
+
+          <article data-ch="1" class="active">
+            <div class="ch-kicker">Chapter 1 · Course Overview</div>
+            <h3>About the Course — Training Plan</h3>
+            <p><b>LIVE TRAINING PROGRAM.</b> Chaar hafte, aik saaf rasta: live sessions, real skills. Program <b>05 October se 01 November 2026</b> tak chala, rozana live class <b>8:30 PM PKT</b>.</p>
+            <p>Har hafta aik hi tareeqe se kaam karta hai — <b>Learn</b> (live session mein seekho), <b>Demonstrate</b> (dikhao), <b>Apply</b> (khud kar ke dikhao) aur <b>Expert view</b> (expert session se nayi nazar).</p>
+            <h4>Chaaron hafton ka khulasa</h4>
+            <ul>
+              <li><b>Week 1 — AI Foundations + Design</b> (05–11 Oct): prompting, portraits, Canva aur thumbnails.</li>
+              <li><b>Week 2 — Advanced AI Production</b> (12–18 Oct): top AI tools, cartoons, avatars aur video.</li>
+              <li><b>Week 3 — YouTube + TikTok Automation</b> (19–25 Oct): channels, Shorts aur TikTok growth.</li>
+              <li><b>Week 4 — Digital Products, Etsy + Career</b> (26 Oct–01 Nov): Etsy, AI websites, Python aur mindset.</li>
+            </ul>
+            <div class="callout">Asal usool: sirf dekhna kaafi nahi — har class ke baad practice aur assignments se skill pakki hoti hai.</div>
+          </article>
+
+          <article data-ch="2">
+            <div class="ch-kicker">Chapter 2 · Prompt Engineering</div>
+            <h3>Prompt Engineering Journey — Studio Setup</h3>
+            <p>Is chapter mein prompt ka asal farq dekha gaya: <b>simple prompt vs engineered prompt</b> — aik hi idea, do mukhtalif nateeje.</p>
+            <h4>Simple prompt (pehle diya gaya)</h4>
+            <div class="prompt-box">“Generate a professional studio photography, this product.”</div>
+            <p>Nateeja: aik aam si tasveer mili. Phir prompt engineering se prompts dobara likhe gaye — tafseel ke saath.</p>
+            <h4>Engineered prompt (baad wala)</h4>
+            <div class="prompt-box">“Generate a luxury futuristic video-editing studio centered around a sleek black editing workstation with dual high-resolution monitors. Screens display cinematic footage, advanced video timelines, AI-generated imagery, motion graphics, VFX compositing and color grading. Surround the workstation with subtle floating holographic timeline elements, AI visual icons, geometric motion-graphic shapes, data particles and purple cinematic light streaks. Camera angle: 3/4 front perspective, slightly above desk level, 35mm cinematic lens, deep focus, 8K resolution.”</div>
+            <p>Doosra prompt — ultra-premium version — mein hero camera angle, 40mm lens aur realistic proportions tak likhe gaye. Nateeja: pro-level studio wali pictures.</p>
+            <div class="callout"><b>Learning:</b> Prompt jitna detailed hoga, result utna hi premium hoga. Cheez, angle, lens, lighting aur style — sab likho.</div>
+          </article>
+
+          <article data-ch="3">
+            <div class="ch-kicker">Chapter 3 · AI Video</div>
+            <h3>AI Video Editor — Copy. Paste. Prompt. Create.</h3>
+            <p>Video editing ka purana tareeqa bhool jao — timeline, keyframes aur rendering ka jhanjhat khatam. Is system mein bas <b>4 steps: COPY karo, PASTE karo, PROMPT do, CREATE karo.</b> Bina camera, bina studio ke sirf apne lafzon se professional videos banti hain.</p>
+            <h4>4 pillars — har aik samjho</h4>
+            <ul>
+              <li><b>1. Fast Creation — minutes mein video ready.</b> Pehle 30 second ki cinematic video mein 4–5 ghante lagte thay. Ab prompt likho — “A cinematic shot of snowy mountains at sunset, drone view, 4K” — aur AI 2–3 minute mein video bana deta hai. Reels, ads, YouTube intros aur backgrounds — sab 5 minute mein. Din mein 10–20 videos mumkin.</li>
+              <li><b>2. AI Powered — AI apka assistant hai.</b> Aap director ho, AI apka cameraman + editor hai. Aap idea dete ho, AI khud camera angle, light aur movement tay karta hai. Tools: Runway, Pika, Luma Dream Machine, Sora.</li>
+              <li><b>3. High Quality Output — 4K Ultra HD studio quality.</b> AI videos ab cartoon nahi lagteen — bilkul real lagti hain. Cinematic camera movements, drone shot, close-up, slow-motion, perfect lighting aur colors — client ko impress karne wali quality.</li>
+              <li><b>4. Creative Freedom — jaisa socho, waisa banao.</b> Aapki soch hi apki limit hai: cinematic mountains, futuristic city, product ad, cartoon story — koi location, koi time, koi style, sab possible. Mehange cameras, locations ya bari team ki zaroorat nahi.</li>
+            </ul>
+            <p>Ye course do hisson mein hai: <b>AI Video Editor (tool) + Learn AI Video Creation (skill)</b>. Socho — jo idea zehan mein hai, wohi cinematic video ban jaye. Ab ye khwab nahi, skill hai.</p>
+            <div class="callout"><b>Benefit:</b> Video dekh kar koi nahi kahega ke ye AI se bani hai — aur yehi asal kamyabi hai.</div>
+          </article>
+
+          <article data-ch="4">
+            <div class="ch-kicker">Chapter 4 · Thumbnails</div>
+            <h3>Master Prompt Thumbnail Class</h3>
+            <p>Is class mein thumbnails ka tajziya (analysis) kiya gaya — ke aik thumbnail click kyun hota hai aur doosra nazar andaaz kyun ho jata hai.</p>
+            <h4>Class ka focus</h4>
+            <ul>
+              <li><b>Saaf subject:</b> thumbnail mein aik wazeh markazi cheez ho — nazar pehli jhalak mein samajh aaye.</li>
+              <li><b>Bara, parhne layak text:</b> chhota text mobile par kho jata hai — alfaz bare aur kam hon.</li>
+              <li><b>Contrast aur rang:</b> rang aur roshni subject ko background se alag kare.</li>
+              <li><b>Curiosity:</b> thumbnail aik sawal chhore — dekhne wala click kare baghair reh na sake.</li>
+              <li><b>Master prompt:</b> thumbnail banane se pehle prompt mein subject, mood, rang aur composition wazeh likhna — phir AI se behtar nateeja milta hai.</li>
+            </ul>
+            <p>Is chapter ke likhe hue notes mukhtasir hain — class zyada tar tasveeron aur misaalon par mabni thi — lekin usool wahi hai jo upar likha hai: <b>saaf, bara aur dilchasp.</b></p>
+          </article>
+
+          <article data-ch="5">
+            <div class="ch-kicker">Chapter 5 · AI Movies</div>
+            <h3>How to Create a Movie — AI Movie Workflow</h3>
+            <p>AI se mukammal movie banane ka step-by-step tareeqa — idea se le kar tasveeron aur voiceover tak:</p>
+            <ol>
+              <li><b>Idea prompt:</b> AI video creation ke liye aik creative concept share karo — jese Hollywood style mein dikhana ke AI video kaise kaam karti hai.</li>
+              <li><b>Concept polish:</b> concept ko mazeed behtar aur tafseel se likho — “polish this concept, the more enhancement.”</li>
+              <li><b>Scene-by-scene script:</b> concept ko scene dar scene raw script aur video prompts mein badlo.</li>
+              <li><b>Voiceover:</b> Roman Urdu mein voiceover — awaaz video ke saath ho.</li>
+              <li><b>Character reference:</b> apni character sheet attach karo taake chehre ki pehchan har scene mein mehfooz rahe, aur apna logo bhi saath rakho. Pehli reference image <b>9:16 portrait ratio</b> mein banao, phir agle scenes ki images usi reference se banao.</li>
+            </ol>
+            <h4>Class mein banaye gaye movie ideas</h4>
+            <ul>
+              <li>Cartoon movie: <b>“The Dream Thief — Luma Valley”</b></li>
+              <li>Learning movie: <b>“The Cat I Want to Keep”</b></li>
+              <li>Movie: <b>“The AI Director”</b></li>
+              <li>Learning movie: <b>“Me vs My AI Clone”</b></li>
+              <li>UGC product ad aur AI-generated influencer ad bhi is workflow se banaye gaye.</li>
+            </ul>
+          </article>
+
+          <article data-ch="6">
+            <div class="ch-kicker">Chapter 6 · YouTube Automation</div>
+            <h3>YouTube Automation — Foundations</h3>
+            <p>YouTube automation ka bunyadi dhancha: <b>topic selection, scripting, voiceover, editing aur thumbnail</b> — aur phir aik aham sawal: <b>saturation vs competition.</b></p>
+            <h4>Saturation vs competition</h4>
+            <ul>
+              <li><b>Competition:</b> aik hi niche ko mukhtalif nazariye (perspective) se banana — content ki demand zyada hoti hai, bara audience milta hai.</li>
+              <li><b>Saturation:</b> aik hi cheez ki 100 copies — sab se zyada khatarnaak yahi hai. Zero learning, zero creativity.</li>
+            </ul>
+            <h4>Policies — mass demonetization se bacho</h4>
+            <ul>
+              <li>IP, recovery, emails aur AdSense ka khayal rakho.</li>
+              <li>AdSense ke nuqsan: aarzi lalach ke peeche 1–2 mahine mein jitna nikala, us se zyada nuqsan ye ke AdSense kharab ho jaye — phir market se khareeda hua ya kisi aur ki maloomat par apply karna bhi mushkil ho jata hai.</li>
+            </ul>
+            <h4>Channel levels</h4>
+            <ul>
+              <li><b>Level 1 — AI based:</b> mukammal AI par mabni channel.</li>
+              <li><b>Level 2 — Classical + AI + visual stock + videos:</b> mila jula tareeqa.</li>
+              <li><b>Level 3 — Highly experienced:</b> topics, scripting, visuals + AI — sab par maharat.</li>
+            </ul>
+            <h4>Random vs specific workflow</h4>
+            <p><b>Random:</b> koi idea nahi ke content kya banana hai — bilkul blank. <b>Specific:</b> topic pehle chuno (jese wedding card), phir uski script nikalo, phir poori video banao. Channel analysis ke liye social media tools aur keywords istemal karo.</p>
+            <h4>Content pillars</h4>
+            <p>Content pillars 4–5 hone chahiye — misaal ke taur par “disturbing moments” ke pillars: movies, reality TV shows, documentary + horror, aur cartoon. Pillars na banana nuqsan hai — channel ka rukh hi wazeh nahi hota.</p>
+          </article>
+
+          <article data-ch="7">
+            <div class="ch-kicker">Chapter 7 · Scriptwriting</div>
+            <h3>Scriptwriting — The 5-Step Formula</h3>
+            <p>Har achhi script aur har clickable title ke peeche aik hi formula hai — <b>5 steps</b>:</p>
+            <div class="formula">
+              <div><span>1</span>Subject</div>
+              <div><span>2</span>Situation</div>
+              <div><span>3</span>Triggers</div>
+              <div><span>4</span>Tension</div>
+              <div><span>5</span>Promise</div>
+            </div>
+            <ul>
+              <li><b>Subject:</b> woh cheez jis par aap discuss karne ja rahe ho.</li>
+              <li><b>Situation:</b> woh pehlu jo aap discuss karna chahte ho.</li>
+              <li><b>Triggers:</b> jo apke title ko zyada clickable banate hain.</li>
+              <li><b>Tension:</b> woh baat jo dekhne wale ke zehan mein aaye aur woh click kare.</li>
+              <li><b>Promise:</b> woh jo aap ne video mein deliver karna hai.</li>
+            </ul>
+            <h4>Worked example — disturbing movie scenes</h4>
+            <p><b>Subject:</b> disturbing movie scenes. <b>Situation:</b> what scene? what movies? how disturbing? what is inside them? <b>Tension:</b> scenes — movie disturbing. <b>Promise:</b> disturbing, sleepless, restless, chills. <b>Triggers:</b> horror movies, disturbing scenes.</p>
+            <div class="prompt-box">Title: “Horror movies disturbing scenes that can make you sleepless.” — Sleepless / restless / terrifying / chilling — yehi alfaz click dilate hain.</div>
+            <h4>Title research ka tareeqa</h4>
+            <p>AI search tools (jaise Gemini) se aik angle par mukhtalif titles banao — misaal: aik watch brand ke “downfall” angle par 5-step formula se mukhtalif titles. Phir 5-point breakdown likho: subject kya hai, situation kya hai, triggers konsay hain, tension kahan hai, aur promise kya deliver hoga.</p>
+            <div class="callout">Scriptwriting ka usool: pehle 5 steps kagaz par, phir script. Title formula se banta hai, andaze se nahi.</div>
+          </article>
+
+          <article data-ch="8">
+            <div class="ch-kicker">Chapter 8 · Prompt Practice</div>
+            <h3>Prompt Engineering — Practice Work</h3>
+            <p>Is practice work mein <b>identity-preserving prompts</b> ki mashq ki gayi — apni uploaded photo ko reference bana kar, chehre ki pehchan bilkul mehfooz rakhte hue, bilkul natural tasaveer banana.</p>
+            <h4>Prompt 1 — natural selfie technique</h4>
+            <div class="prompt-box">“Use my uploaded photo as the primary identity reference and preserve my facial identity accurately. Create a completely natural, unposed selfie of me standing next to another person in the United States. The photo should look like a real phone selfie taken spontaneously — not a professional photoshoot. Both casually dressed, relaxed, naturally looking toward the phone camera. Realistic facial expressions, natural skin texture, subtle imperfections, authentic hair details, ordinary everyday lighting.”</div>
+            <h4>Prompt 2 — candid photo technique</h4>
+            <div class="prompt-box">“Use the two attached reference images as identity references for the two people. Preserve their individual facial identity, facial structure, skin tone, hairstyle and overall appearance accurately. Create a completely natural-looking candid photograph of both people together, as if one of them casually took the photo on a phone. Keep the appearance realistic and unretouched, with natural skin texture, subtle imperfections, realistic hair strands and authentic facial expressions. Aspect ratio: 4:3.”</div>
+            <h4>Seekhi hui baatein</h4>
+            <ul>
+              <li>Identity reference wazeh likho: facial identity, structure, skin tone, hairstyle — sab mehfooz rakhna hai.</li>
+              <li>“Natural, unposed, candid” likhne se tasveer photoshoot jaisi nahi, asal zindagi jaisi lagti hai.</li>
+              <li>Lighting, skin texture aur chhoti imperfections ka zikr realism badhata hai.</li>
+              <li>Airport, street ya roz-marra ki jagah ka zikr background ko yaqeen-dahani deta hai.</li>
+            </ul>
+          </article>
+
+          <article data-ch="9">
+            <div class="ch-kicker">Chapter 9 · YouTube Roadmap</div>
+            <h3>YouTube Automation Roadmap — Podcast-Style Channel Blueprint</h3>
+            <p>Aik kamyab beginner English-learning channel ka mukammal blueprint — competitor ka tajziya, script structure, visual design, AI production pipeline aur technical setup — taake isi tarz ki videos khud banayi ja saken.</p>
+            <h4>Competitor breakdown — ye tarz kyun kaam karta hai</h4>
+            <ul>
+              <li><b>Target audience:</b> absolute beginners (A1–A2) jo native-speed English se ghabrate hain — unhein slow, saaf, dohraai wali guftagu chahiye.</li>
+              <li><b>Format:</b> “podcast” style — do hosts ki scripted guftagu, seekhne ke liye banayi gayi.</li>
+              <li><b>Visuals:</b> 2D flat vector cartoons — rang-birange, dostana aur live-action se saste.</li>
+              <li><b>Thumbnails:</b> bare alfaz (“My Daily Routine”, “Tell Me About Yourself”) jo mobile screen par chha jate hain.</li>
+              <li><b>Hook:</b> aik khaas masla hal karna — jese “apne din ke bare mein kaise baat karein” — aur sahi vocabulary aur jumle dena.</li>
+            </ul>
+            <h4>Production pipeline — 4 steps</h4>
+            <ul>
+              <li><b>Step A — Script Generation (LLM):</b> ChatGPT ya Claude se 5-minute podcast script — do hosts, aik topic, simple tense, vocabulary section, slow dialogue aur “common mistakes” section; jumle 10 alfaz se chhote.</li>
+              <li><b>Step B — Voice Generation (TTS):</b> do mukhtalif awaazein (female + male), stability aur similarity high. Insani lehje ke liye “uhm” aur “ah” fillers add karo. Free alternative: Edge-TTS — muft hai lekin zyada robotic lagta hai.</li>
+              <li><b>Step C — Visual Generation:</b> Midjourney, DALL-E 3 ya Gemini image generation se 2D flat vector illustration — podcast desk par do log, warm colors, simple background. Thumbnail par Canva ya Photoshop se bara bold text lagao.</li>
+              <li><b>Step D — Video Assembly (FFmpeg):</b> static image + audio track ko script se joro, halki “pulse” effect do taake tasveer bilkul static na lage. Whisper se subtitles (.ass captions) banao — beginner channels ke liye ye lazmi hai.</li>
+            </ul>
+            <p><b>Automation:</b> manually edit mat karo — Python pipeline se script, voice, image aur assembly ko aik nizam mein joro. Aik aur channel idea bhi class mein aaya: family channel — do chhote bachay, mum aur dad — roz-marra ki kahani aur seekhne wali videos ke saath.</p>
+          </article>
+
+          <article data-ch="10">
+            <div class="ch-kicker">Chapter 10 · Airdrops</div>
+            <h3>Airdrop Notes — Crypto Airdrops, Earn From Mobile</h3>
+            <p><b>Mobile se earning — laptop ki zaroorat nahi.</b> Airdrop kya hai? Aik crypto project ki taraf se apke wallet mein bheje gaye <b>muft coins</b> — aap chhote tasks karte ho, project apko tokens se reward deta hai.</p>
+            <h4>Airdrop kaise kaam karta hai</h4>
+            <ol>
+              <li><b>Join:</b> app download karo ya project join karo.</li>
+              <li><b>Tasks:</b> daily check-in, follow, test, invite — tasks mukammal karo.</li>
+              <li><b>Points:</b> active rehne se points jama hote hain.</li>
+              <li><b>Coins:</b> project coins apke wallet mein bhejta hai.</li>
+            </ol>
+            <h4>Projects muft coins kyun dete hain?</h4>
+            <ul>
+              <li>Users hasil karna — naye projects ko log chahiye jo unhein aazmayein.</li>
+              <li>Community banana — early members wafadar support bante hain.</li>
+              <li>Coins phelana — coins chand haathon mein nahi, bohat se haathon tak pahunchein.</li>
+            </ul>
+            <h4>Mobile se kamane ke 2 tareeqe</h4>
+            <ul>
+              <li><b>Free coin mining:</b> trusted app kholo, daily tap ya check-in karo, waqt ke saath coins jama karo.</li>
+              <li><b>Airdrop tasks:</b> project ke chhote tasks mukammal karo aur airdrop ke liye qualify karo.</li>
+            </ul>
+            <h4>Trust rules — hamesha yaad rakho</h4>
+            <div class="callout">Sirf trusted apps istemal karo. <b>Apna seed phrase kabhi kisi ko mat do</b> aur <b>claim karne ke liye kabhi paise mat do.</b></div>
+            <p>Misaal projects: Pi, Notcoin, Hamster Kombat, Uniswap — mobile mining, Telegram tap games aur early-user rewards. Kuch airdrops 2024 mein mile (Uni airdrop 2020 mein mila tha). <b>Har airdrop pay nahi karta</b> — kabhi achha reward milta hai, kabhi kuch nahi; kuch projects kabhi launch hi nahi hote. Waqt: chhote — dinon se hafton; bare — maheenon se saalon.</p>
+            <p><b>Referral codes:</b> har app apko apna code deti hai — dost apke code se join karein to dono ko bonus coins milte hain. Agla hissa: advanced airdrop — mazeed gehri tafseel ke saath.</p>
+          </article>
+
+          <article data-ch="11">
+            <div class="ch-kicker">Chapter 11 · Week 1 Notes</div>
+            <h3>Class Notes — Week 1: AI Foundations + Design</h3>
+            <p>Hafta 1 ki classes jin ke alag notes nahi thay — un ke khulase yahan hain. Dono classes ka markaz: AI se professional tasveer aur design.</p>
+            <h4>AI Portrait Generation</h4>
+            <p>Is class mein AI se professional portraits banana sikhaya gaya. Achhi portrait ke liye prompt mein chehre ki tafseel, lighting, background aur style wazeh likhna zaroori hai. Aik hi prompt ko baar baar behtar kar ke (improve kar ke) result professional hota jata hai. Portraits ko social media, profiles aur client work mein istemal kiya ja sakta hai.</p>
+            <h4>Designing With AI + Canva Workflow</h4>
+            <p>AI design tools aur Canva ko mila kar tez aur professional designs banana is class ka topic tha. Workflow: pehle AI se idea/image banana, phir Canva mein layout, text aur branding add karna. Template ka sahi istemal waqt bachata hai aur design hamesha aik jaisa (consistent) rehta hai.</p>
+          </article>
+
+          <article data-ch="12">
+            <div class="ch-kicker">Chapter 12 · Week 2 Notes</div>
+            <h3>Class Notes — Week 2: Advanced AI Production</h3>
+            <p>Hafta 2 ki classes jin ke alag notes nahi thay — un ke khulase yahan hain.</p>
+            <h4>Mastering ChatGPT, Claude, Gemini + Advanced AI Workflows</h4>
+            <p>Teen bare AI tools — ChatGPT, Claude aur Gemini — ko professional kaam ke liye istemal karna. Har tool ki apni taqat hai: likhai, lambi tafseel aur research mein farq samajhna zaroori hai. Advanced workflow ka matlab hai aik kaam ko steps mein tor kar AI se karwana. Saath Muse AI ko videos ke liye istemal karna bhi shamil tha.</p>
+            <h4>AI Avatars, Long-Form Videos, Product Shots + UGC Ads</h4>
+            <p>AI avatar bana kar bina camera ke videos banana. Long-form (lambi) videos ki planning, product shots ko AI se professional dikhana, aur UGC style ads — jo asal customer ki video jese lagte hain — banana sikhaya gaya. Ye skills client work aur ads ke liye bohat kaam ki hain.</p>
+            <h4>Advanced Generative AI, Storytelling + AI Video Production</h4>
+            <p>Generative AI ki advanced techniques aur storytelling ka milaap. Kahani ki structure — shuruaat, darmiyan ka tension aur aakhir — ko AI video production mein istemal karna. Achhi kahani hi video ko dekhne par majboor karti hai.</p>
+            <h4>AI Expert Session</h4>
+            <p>AI expert ki khaas session: naye AI trends, tools aur un ke asal istemal par rehnumai. Sawalon ke jawab aur practical mashware is session ka hissa thay.</p>
+          </article>
+
+          <article data-ch="13">
+            <div class="ch-kicker">Chapter 13 · Week 3 Notes</div>
+            <h3>Class Notes — Week 3: YouTube + TikTok Automation</h3>
+            <p>Hafta 3 ki classes jin ke alag notes nahi thay — un ke khulase yahan hain.</p>
+            <h4>AI Visuals + Policy Safety</h4>
+            <p>YouTube par AI visuals istemal karna aur inauthentic-content ki policy se bachna. Originality zaroori hai: sirf AI se bani hui dohraai (repetitive) content masla ban sakti hai. Apni awaaz, apni editing aur apna touch add karna policy safety ke liye ahem hai.</p>
+            <h4>AI Niches + Video Editing</h4>
+            <p>AI niches mein videos banana — sahi niche chunna hi kamyabi ki pehli seedhi hai. Professional editing tips: saaf cuts, munasib speed aur dekhne wale ko roke rakhne wali editing.</p>
+            <h4>Scaling Channels</h4>
+            <p>Aik channel se barh kar multiple channels chalana aur unhein long-term assets banana. Har channel aik asset hai jo waqt ke saath barhta hai — system aur routine banana scaling ki kunji hai.</p>
+            <h4>YouTube Shorts Mastery</h4>
+            <p>Shorts se earning, Shorts ko automate karna, zero-views ka masla hal karna aur RPM behtar karna. Short ki pehli 2 seconds sab se ahem hoti hain — wahin dekhne wala rukta ya aage barh jata hai.</p>
+            <h4>TikTok Automation Masterclass</h4>
+            <p>AI ke saath TikTok par grow karna. Quality content, originality aur TikTok ki policies ka khayal rakhna. Topic dhundhna aur us par script likhna is class ki bunyad thi.</p>
+          </article>
+
+          <article data-ch="14">
+            <div class="ch-kicker">Chapter 14 · Week 4 Notes</div>
+            <h3>Class Notes — Week 4: Digital Products, Etsy + Career</h3>
+            <p>Hafta 4 ki classes jin ke alag notes nahi thay — un ke khulase yahan hain.</p>
+            <h4>Digital Products With AI + Etsy From Zero</h4>
+            <p>AI se digital products banana aur Etsy par zero se shuruaat. Keyword research, winning product dhundhna, AI se product banana aur Canva AI se editable designs tayyar karna. Digital product aik dafa banta hai aur baar baar bikta hai.</p>
+            <h4>Build Websites With AI to Sell Digital Products</h4>
+            <p>AI ki madad se websites banana taake digital products beche ja saken. Website hi dukaan hai — product wahan se seedha customer tak jata hai.</p>
+            <h4>Digital Marketing for Digital Products</h4>
+            <p>Digital products ko AI-powered marketing se bechna. Product banana kaafi nahi, use sahi logon tak pohanchana hi asal hunar hai.</p>
+            <h4>Etsy Growth Roadmap</h4>
+            <p>Etsy par growth ka mukammal roadmap: research, niche selection aur winning products. Sahi niche aur sahi product hi Etsy par kamyabi deta hai.</p>
+            <h4>Python Automation + Getting Clients</h4>
+            <p>AI se smart Python scripts bana kar dohraye jane wale (repetitive) kaam automate karna. Saath clients hasil karna: Upwork, Fiverr aur LinkedIn par kaam dhundhna aur seekhi hui skills se earning karna.</p>
+            <h4>Mindset + Certificate Guidance</h4>
+            <p>Career growth, goal par focus aur motivated rehna — certified mindset rehnumai ke saath. Aakhir mein achievement certificate ke bare mein final guidance.</p>
+            <div class="callout">Notes Book mukammal! Ab quiz mein apni tayyari aazmao — neeche Quiz section mein.</div>
+          </article>
+
+          </div>
+          <div class="reader-nav">
+            <button class="btn btn-ghost btn-sm" id="prevCh" type="button">← Previous chapter</button>
+            <button class="mark-btn" id="markReadBtn" type="button">✓ Mark as read</button>
+            <button class="btn btn-lime btn-sm" id="nextCh" type="button">Next chapter →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="sep" />
+
+    <!-- WHAT YOU WILL LEARN -->
+    <section class="block wrap" id="learn" aria-label="What you will learn">
+      <div class="sec-head reveal">
+        <div class="kicker">Course Content</div>
+        <h2 class="sec">What You Will Learn</h2>
+        <p class="sec-sub">Every topic was taught in a live class — and the full detail is in the Notes Book.</p>
+      </div>
+      <div class="chip-grid reveal">
+        <div class="chip-card"><div class="ico">✦</div><h3>Prompt Engineering</h3><p>From a simple prompt to an engineered prompt — detailed prompts for premium results.</p></div>
+        <div class="chip-card"><div class="ico">◉</div><h3>AI Portraits &amp; Design</h3><p>Professional portraits, Canva workflow, and thumbnails that earn clicks.</p></div>
+        <div class="chip-card"><div class="ico">▶</div><h3>AI Video Creation</h3><p>Copy, paste, prompt, create — cinematic videos without a camera.</p></div>
+        <div class="chip-card"><div class="ico">◎</div><h3>AI Avatars &amp; UGC Ads</h3><p>Videos without a camera, product shots, and ads that look like real customer videos.</p></div>
+        <div class="chip-card"><div class="ico">✎</div><h3>Scriptwriting — 5-Step Formula</h3><p>Scripts and titles built from Subject, Situation, Triggers, Tension, Promise.</p></div>
+        <div class="chip-card"><div class="ico">▣</div><h3>YouTube Automation</h3><p>Topic, scripting, voiceover, editing, thumbnails — and channel scaling.</p></div>
+        <div class="chip-card"><div class="ico">♪</div><h3>YouTube Shorts &amp; TikTok</h3><p>Shorts mastery, fixing zero views, RPM — and TikTok growth.</p></div>
+        <div class="chip-card"><div class="ico">◈</div><h3>Digital Products &amp; Etsy</h3><p>Digital products with AI, keyword research, and the Etsy growth roadmap.</p></div>
+        <div class="chip-card"><div class="ico">⬢</div><h3>Websites, Python &amp; Clients</h3><p>Websites with AI, Python automation, and clients from Upwork, Fiverr and LinkedIn.</p></div>
+        <div class="chip-card"><div class="ico">✧</div><h3>Storytelling &amp; Cartoons</h3><p>Story structure and creating a complete cartoon movie with AI.</p></div>
+        <div class="chip-card"><div class="ico">⬡</div><h3>Crypto Airdrops</h3><p>Free coins from your mobile, airdrop tasks, and trust rules — never share your seed phrase.</p></div>
+        <div class="chip-card"><div class="ico">♥</div><h3>Mindset &amp; Certificate</h3><p>Staying focused on your goal, staying motivated, and certificate guidance.</p></div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="block wrap" id="highlights" aria-label="Course highlights" style="padding-top:0">
+      <div class="sec-head reveal">
+        <div class="kicker">Highlights</div>
+        <h2 class="sec">Course Highlights</h2>
+      </div>
+      <div class="chip-grid reveal">
+        <div class="chip-card"><div class="ico">●</div><h3>100% Free — No Fee</h3><p>Classes are completely free. No fee, no charges.</p></div>
+        <div class="chip-card"><div class="ico">◷</div><h3>Live Classes — 8:30 PM PKT</h3><p>Daily live sessions, on time — with questions and answers.</p></div>
+        <div class="chip-card"><div class="ico">✎</div><h3>Easy-to-Understand Notes</h3><p>Notes in simple, easy language — so everyone can understand.</p></div>
+        <div class="chip-card"><div class="ico">⚑</div><h3>Learn · Demonstrate · Apply</h3><p>Learn, demonstrate, do it yourself — a clear method every week.</p></div>
+        <div class="chip-card"><div class="ico">★</div><h3>Expert Sessions</h3><p>Expert sessions every week — new trends and practical advice.</p></div>
+        <div class="chip-card"><div class="ico">✓</div><h3>Practice &amp; Assignments</h3><p>Practice after every class — skills grow by doing, not just by watching.</p></div>
+      </div>
+    </section>
+
+    <hr class="sep" />
+
+    <!-- JOURNEY MAP -->
+    <section class="block wrap" id="journey" aria-label="Course journey map">
+      <div class="sec-head reveal">
+        <div class="kicker">Journey Map</div>
+        <h2 class="sec">Course Journey — 4 Weeks</h2>
+        <p class="sec-sub">From the first day to the last — a clear path, week by week.</p>
+      </div>
+      <div class="journey reveal">
+        <div class="j-step"><span class="num">1</span><div class="wk">Week 1</div><h3>AI Foundations + Design</h3><div class="dates">05 – 11 Oct 2026</div><p>Prompting, portraits, Canva and thumbnails — the foundation is built here.</p></div>
+        <div class="j-step"><span class="num">2</span><div class="wk">Week 2</div><h3>Advanced AI Production</h3><div class="dates">12 – 18 Oct 2026</div><p>Top AI tools, cartoons, avatars and video — production moves to the next level.</p></div>
+        <div class="j-step"><span class="num">3</span><div class="wk">Week 3</div><h3>YouTube + TikTok Automation</h3><div class="dates">19 – 25 Oct 2026</div><p>Channels, Shorts and TikTok growth — the real work of automation.</p></div>
+        <div class="j-step"><span class="num">4</span><div class="wk">Week 4</div><h3>Digital Products, Etsy + Career</h3><div class="dates">26 Oct – 01 Nov 2026</div><p>Etsy, AI websites, Python and mindset — from skill to earning.</p></div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section class="block wrap" id="schedule" aria-label="Course schedule" style="padding-top:0">
+      <div class="sec-head reveal">
+        <div class="kicker">Schedule</div>
+        <h2 class="sec">Course Schedule — Week 1 to Week 4</h2>
+        <p class="sec-sub">Live classes at 8:30 PM PKT. Topics follow the training plan — day by day.</p>
+      </div>
+      <div class="week-grid reveal">
+        <div class="week-card">
+          <h3>Week 1 — AI Foundations + Design</h3><div class="dates">05 – 11 Oct 2026</div>
+          <div class="day-row"><span class="d">Mon 05</span><span class="t"><b>SkillX Kickoff + Prompt Engineering</b><span>The start of the course and the foundations of prompting</span></span></div>
+          <div class="day-row"><span class="d">Tue 06</span><span class="t"><b>AI Portrait Generation</b><span>Professional portraits — prompt, lighting, style</span></span></div>
+          <div class="day-row"><span class="d">Wed 07</span><span class="t"><b>Designing With AI + Canva Workflow</b><span>AI designs, plus layout and branding in Canva</span></span></div>
+          <div class="day-row"><span class="d">Thu 08</span><span class="t"><b>AI Thumbnail Design + Industry Insights</b><span>Expert session — thumbnails and industry insights</span></span></div>
+          <div class="day-row off"><span class="d">Fri 09</span><span class="t"><b>Practice Day</b><span>Assignments and practice</span></span></div>
+          <div class="day-row off"><span class="d">Sat 10</span><span class="t"><b>Practice Day</b><span>Assignments and practice</span></span></div>
+          <div class="day-row off"><span class="d">Sun 11</span><span class="t"><b>Holiday</b><span>SkillX holiday</span></span></div>
+        </div>
+        <div class="week-card">
+          <h3>Week 2 — Advanced AI Production</h3><div class="dates">12 – 18 Oct 2026</div>
+          <div class="day-row"><span class="d">Mon 12</span><span class="t"><b>Mastering ChatGPT, Claude, Gemini + Advanced AI Workflows</b><span>Plus Muse AI for videos</span></span></div>
+          <div class="day-row"><span class="d">Tue 13</span><span class="t"><b>From Story to Complete Cartoon Movie With AI</b><span>From a story to a complete cartoon movie</span></span></div>
+          <div class="day-row"><span class="d">Wed 14</span><span class="t"><b>AI Avatars, Long-Form Videos, Product Shots + UGC Ads</b><span>Videos and ads without a camera</span></span></div>
+          <div class="day-row"><span class="d">Thu 15</span><span class="t"><b>Advanced Generative AI, Storytelling + AI Video Production</b><span>Expert session</span></span></div>
+          <div class="day-row off"><span class="d">Fri 16</span><span class="t"><b>Practice Day</b><span>Assignments and practice</span></span></div>
+          <div class="day-row"><span class="d">Sat 17</span><span class="t"><b>AI Expert Session</b><span>New AI trends and practical advice</span></span></div>
+          <div class="day-row off"><span class="d">Sun 18</span><span class="t"><b>Holiday</b><span>SkillX holiday</span></span></div>
+        </div>
+        <div class="week-card">
+          <h3>Week 3 — YouTube + TikTok Automation</h3><div class="dates">19 – 25 Oct 2026</div>
+          <div class="day-row"><span class="d">Mon 19</span><span class="t"><b>YouTube Automation Foundations</b><span>Quality content, originality and YouTube policies</span></span></div>
+          <div class="day-row"><span class="d">Tue 20</span><span class="t"><b>Scripts, Voiceover + Pro Editing</b><span>Engaging scripts, voiceover and high-standard editing</span></span></div>
+          <div class="day-row"><span class="d">Wed 21</span><span class="t"><b>AI Visuals + Policy Safety</b><span>AI visuals and staying safe from inauthentic-content issues</span></span></div>
+          <div class="day-row"><span class="d">Thu 22</span><span class="t"><b>AI Niches + Video Editing</b><span>Videos in AI niches and professional editing tips</span></span></div>
+          <div class="day-row"><span class="d">Fri 23</span><span class="t"><b>Scaling Channels</b><span>Multiple channels and long-term assets</span></span></div>
+          <div class="day-row"><span class="d">Sat 24</span><span class="t"><b>YouTube Shorts Mastery</b><span>Earning, automation, zero views and RPM</span></span></div>
+          <div class="day-row"><span class="d">Sun 25</span><span class="t"><b>TikTok Automation Masterclass</b><span>Growing on TikTok with AI</span></span></div>
+        </div>
+        <div class="week-card">
+          <h3>Week 4 — Digital Products, Etsy + Career</h3><div class="dates">26 Oct – 01 Nov 2026</div>
+          <div class="day-row"><span class="d">Mon 26</span><span class="t"><b>Digital Products With AI + Etsy From Zero</b><span>Keyword research, product finding and Canva AI designs</span></span></div>
+          <div class="day-row"><span class="d">Tue 27</span><span class="t"><b>TikTok Automation Expert Class</b><span>Expert session</span></span></div>
+          <div class="day-row"><span class="d">Wed 28</span><span class="t"><b>Build Websites With AI to Sell Digital Products</b><span>Web development with AI</span></span></div>
+          <div class="day-row"><span class="d">Thu 29</span><span class="t"><b>Digital Marketing for Digital Products</b><span>Selling with AI-powered marketing</span></span></div>
+          <div class="day-row"><span class="d">Fri 30</span><span class="t"><b>Etsy Growth Roadmap</b><span>Research, niche selection and winning products</span></span></div>
+          <div class="day-row"><span class="d">Sat 31</span><span class="t"><b>Python Automation + Getting Clients</b><span>Smart Python scripts, plus Upwork, Fiverr and LinkedIn</span></span></div>
+          <div class="day-row"><span class="d">Sun 01</span><span class="t"><b>Mindset + Certificate Guidance</b><span>Career growth, focus and certificate guidance</span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
+    <section class="block wrap" id="tools" aria-label="Tools" style="padding-top:0">
+      <div class="sec-head reveal">
+        <div class="kicker">Tools</div>
+        <h2 class="sec">Tools Used in the Course</h2>
+      </div>
+      <div class="tools-strip reveal">
+        <span class="tool-chip"><i></i>ChatGPT</span>
+        <span class="tool-chip"><i></i>Claude</span>
+        <span class="tool-chip"><i></i>Gemini</span>
+        <span class="tool-chip"><i></i>Canva</span>
+        <span class="tool-chip"><i></i>CapCut</span>
+        <span class="tool-chip"><i></i>FFmpeg</span>
+      </div>
+    </section>
+
+    <hr class="sep" />
+
+    <!-- QUIZ -->
+    <section class="block wrap" id="quiz" aria-label="Quiz">
+      <div class="sec-head reveal">
+        <div class="kicker">Quiz</div>
+        <h2 class="sec">Test Your Preparation — 5 Questions</h2>
+        <p class="sec-sub">5 questions taken from the notes. Choose an answer, then select “See result”.</p>
+      </div>
+      <div class="quiz-card reveal">
+        <form id="quizForm" novalidate>
+          <div class="q-block" data-answer="b">
+            <p class="q">1. What are the 5 steps of the 5-Step Formula?</p>
+            <div class="q-opts">
+              <label><input type="radio" name="q1" value="a" /> Idea, Script, Shoot, Edit, Publish</label>
+              <label><input type="radio" name="q1" value="b" /> Subject, Situation, Triggers, Tension, Promise</label>
+              <label><input type="radio" name="q1" value="c" /> Title, Thumbnail, Tags, Views, Likes</label>
+            </div>
+            <p class="q-expl">Correct answer: Subject, Situation, Triggers, Tension, Promise — see Chapter 7.</p>
+          </div>
+          <div class="q-block" data-answer="a">
+            <p class="q">2. What is an airdrop?</p>
+            <div class="q-opts">
+              <label><input type="radio" name="q2" value="a" /> Free coins from a crypto project for completing small tasks</label>
+              <label><input type="radio" name="q2" value="b" /> A type of paid subscription</label>
+              <label><input type="radio" name="q2" value="c" /> A video editing tool</label>
+            </div>
+            <p class="q-expl">Correct answer: free coins — complete tasks, collect points, and coins arrive in your wallet. See Chapter 10.</p>
+          </div>
+          <div class="q-block" data-answer="c">
+            <p class="q">3. What is the most dangerous thing in YouTube automation?</p>
+            <div class="q-opts">
+              <label><input type="radio" name="q3" value="a" /> Competition — covering one niche from different perspectives</label>
+              <label><input type="radio" name="q3" value="b" /> Making long videos</label>
+              <label><input type="radio" name="q3" value="c" /> Saturation — 100 copies of the same thing, with zero creativity</label>
+            </div>
+            <p class="q-expl">Correct answer: Saturation — zero learning and zero creativity, the biggest risk. See Chapter 6.</p>
+          </div>
+          <div class="q-block" data-answer="b">
+            <p class="q">4. What is the biggest lesson of prompt engineering?</p>
+            <div class="q-opts">
+              <label><input type="radio" name="q4" value="a" /> A prompt should always be short</label>
+              <label><input type="radio" name="q4" value="b" /> The more detailed the prompt, the more premium the result</label>
+              <label><input type="radio" name="q4" value="c" /> Just one word is enough in a prompt</label>
+            </div>
+            <p class="q-expl">Correct answer: a detailed prompt — include the detail, angle, lens, lighting and style. See Chapter 2.</p>
+          </div>
+          <div class="q-block" data-answer="a">
+            <p class="q">5. What matters most for staying within policy when using AI visuals on YouTube?</p>
+            <div class="q-opts">
+              <label><input type="radio" name="q5" value="a" /> Originality — adding your own voice, your own editing and your own touch</label>
+              <label><input type="radio" name="q5" value="b" /> Uploading only repetitive content made entirely by AI</label>
+              <label><input type="radio" name="q5" value="c" /> Re-uploading someone else's video</label>
+            </div>
+            <p class="q-expl">Correct answer: originality — your own touch is what keeps you policy-safe. See Chapter 13.</p>
+          </div>
+          <button class="btn btn-lime" type="submit">See result</button>
+          <button class="btn btn-ghost" type="button" id="quizReset">Play again</button>
+        </form>
+        <div class="quiz-result" id="quizResult" role="status"></div>
+      </div>
+    </section>
+
+    <hr class="sep" />
+
+    <!-- COMMENTS -->
+    <section class="block wrap" id="comments" aria-label="Comments">
+      <div class="sec-head reveal">
+        <div class="kicker">Comments</div>
+        <h2 class="sec">How Are the Notes?</h2>
+        <p class="sec-sub">Share your feedback — your name, stars and comment. Your comment will also be sent to Maria on WhatsApp.</p>
+      </div>
+      <div class="comments-grid reveal">
+        <form class="comment-form" id="commentForm" novalidate>
+          <div class="form-err" id="commentErr" role="alert"></div>
+          <div class="field">
+            <label for="cmName">Your name</label>
+            <input id="cmName" type="text" placeholder="Write your name" required />
+          </div>
+          <div class="field">
+            <label>Stars</label>
+            <div class="stars" role="group" aria-label="Star rating">
+              <button type="button" class="star-btn" data-stars="1" aria-pressed="false" aria-label="1 star">★</button>
+              <button type="button" class="star-btn" data-stars="2" aria-pressed="false" aria-label="2 stars">★</button>
+              <button type="button" class="star-btn" data-stars="3" aria-pressed="false" aria-label="3 stars">★</button>
+              <button type="button" class="star-btn" data-stars="4" aria-pressed="false" aria-label="4 stars">★</button>
+              <button type="button" class="star-btn" data-stars="5" aria-pressed="false" aria-label="5 stars">★</button>
+            </div>
+            <div class="hint" id="starsHint">Choose your stars — none selected yet.</div>
+          </div>
+          <div class="field">
+            <label for="cmText">Comment</label>
+            <textarea id="cmText" rows="4" placeholder="Write your feedback about the notes…" required></textarea>
+          </div>
+          <button class="btn btn-lime btn-block" type="submit">Send comment — via WhatsApp</button>
+        </form>
+        <div>
+          <div class="comment-list" id="commentList">
+            <div class="empty-note" id="commentEmpty">No comments yet — write the first one.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="block wrap" id="faq" aria-label="Frequently asked questions" style="padding-top:0">
+      <div class="sec-head reveal">
+        <div class="kicker">FAQ</div>
+        <h2 class="sec">Frequently Asked Questions</h2>
+      </div>
+      <div class="reveal">
+        <details class="faq" open>
+          <summary>Are the classes free?</summary>
+          <p>Yes — classes are <b>100% free</b>. No fee, no charges.</p>
+        </details>
+        <details class="faq">
+          <summary>How do I enroll?</summary>
+          <p>On the enroll page, enter your name, Google email or mobile number, city, topic and password — then confirm your enrollment on WhatsApp or by email, and enter the 4-digit code shown on the page to verify. That is all — the full website will open.</p>
+        </details>
+        <details class="faq">
+          <summary>What time are the live classes?</summary>
+          <p>Live classes are held at <b>8:30 PM PKT</b>. The countdown to the next live class is shown at the top of this page.</p>
+        </details>
+        <details class="faq">
+          <summary>Can I read the Notes Book without enrolling?</summary>
+          <p>No — the Notes Book opens after you enroll, verify and log in. That is how the book stays available only to enrolled students.</p>
+        </details>
+        <details class="faq">
+          <summary>Where is my account saved?</summary>
+          <p>Your account is saved only on this phone/computer. You will need to enroll again on another device. Your password is never sent to Maria.</p>
+        </details>
+        <details class="faq">
+          <summary>When is SkillX AI Pro 2.0 coming?</summary>
+          <p>SkillX AI Pro 2.0 is <b>Coming Soon</b> — dates and modules will be announced soon, and enrollment is not open yet. See the 2.0 section below.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- COMING SOON 2.0 -->
+    <section class="block wrap" id="coming-soon" aria-label="SkillX AI Pro 2.0 coming soon" style="padding-top:0">
+      <div class="coming reveal">
+        <span class="badge">COMING SOON</span>
+        <div class="kicker" style="color:var(--lime);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase">Next Level</div>
+        <h2>SkillX AI Pro 2.0 — Coming Soon</h2>
+        <p>The next level of AI Pro is coming — going further than everything learned in this course: deeper and broader.</p>
+        <ul>
+          <li>Advanced AI workflows — complete work systems, using several tools together, not just one</li>
+          <li>Deeper automation — more advanced automation that runs on its own</li>
+          <li>Bigger real-world projects — large, real-world projects</li>
+        </ul>
+        <div class="price-line">
+          <div><b>0 PKR</b><span>Price — this one is free too</span></div>
+          <div><b>To be announced</b><span>Dates and modules</span></div>
+          <div><b>Not open</b><span>Enrollment is not open yet</span></div>
+        </div>
+        <a class="btn btn-lime" href="https://skillxpk.com/course-ai-pro-2" target="_blank" rel="noopener">View the official 2.0 page →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot-grid">
+      <div>
+        <b class="wordmark" style="font-size:20px"><span class="s">S</span><span class="mid">kill</span><span class="x">X</span> Course</b>
+        <div>Notes by Maria Asif · 100% Free · No Fee</div>
+      </div>
+      <div>
+        <b>Maria Asif</b><br />
+        Phone: <a href="tel:03342204513">03342204513</a><br />
+        Email: <a href="mailto:mariaasif854@gmail.com">mariaasif854@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- mobile sticky bar + back to top -->
+<div class="mobile-bar" role="navigation" aria-label="Quick actions">
+  <a class="mb-call" href="tel:03342204513">Call</a>
+  <a class="mb-wa" href="https://wa.me/923342204513" target="_blank" rel="noopener">WhatsApp</a>
+  <button class="mb-enroll" id="mobileBarBtn" type="button">Enroll</button>
+</div>
+<button id="toTop" type="button" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
+var WA_NUMBER="923342204513";
+var LS_KEY="skillx_clean_account_v1";
+var LS_PROG="skillx_clean_progress_v1";
+
+function hashStr(s){
+  var h=5381,i;
+  for(i=0;i<s.length;i++){h=((h<<5)+h+s.charCodeAt(i))|0}
+  return "h"+(h>>>0).toString(36)+"_"+s.length;
+}
+function loadAccount(){
+  try{var raw=localStorage.getItem(LS_KEY);return raw?JSON.parse(raw):null}catch(e){return null}
+}
+function saveAccount(a){try{localStorage.setItem(LS_KEY,JSON.stringify(a))}catch(e){}}
+function isEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)}
+function isPhone(v){var d=v.replace(/[\s\-()]/g,"");return /^(\+92|92|0)?3\d{9}$/.test(d)||/^\+?\d{10,13}$/.test(d)}
+function validContact(v){return isEmail(v)||isPhone(v)}
+function showErr(el,msg){el.textContent=msg;el.classList.add("show")}
+function hideErr(el){el.textContent="";el.classList.remove("show")}
+function waLink(text){return "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(text)}
+
+/* ---------- views / tabs ---------- */
+var gateView=$("gateView"),appView=$("appView");
+var enrollForm=$("enrollForm"),loginForm=$("loginForm"),verifyPanel=$("verifyPanel"),confirmPanel=$("confirmPanel");
+var tabEnroll=$("tabEnroll"),tabLogin=$("tabLogin");
+var pending=null,currentUser=null,currentCode=null,confirmSent=false;
+var mobileBarBtn=$("mobileBarBtn");
+
+function setTabs(mode){
+  var enroll=mode==="enroll";
+  tabEnroll.setAttribute("aria-selected",enroll?"true":"false");
+  tabLogin.setAttribute("aria-selected",enroll?"false":"true");
+  enrollForm.hidden=!enroll;
+  loginForm.hidden=enroll;
+  verifyPanel.hidden=true;
+  confirmPanel.hidden=true;
+}
+tabEnroll.addEventListener("click",function(){setTabs("enroll")});
+tabLogin.addEventListener("click",function(){setTabs("login")});
+$("goEnrollLink").addEventListener("click",function(){setTabs("enroll");$("enName").focus()});
+
+function openApp(user){
+  currentUser=user;
+  document.body.classList.add("in-app");
+  gateView.style.display="none";
+  appView.style.display="block";
+  $("helloName").textContent=user.name.split(" ")[0]||user.name;
+  mobileBarBtn.textContent="Notes Book";
+  window.scrollTo({top:0,behavior:"auto"});
+  initProgress();
+  requestAnimationFrame(observeReveals);
+}
+function openGate(mode){
+  currentUser=null;
+  document.body.classList.remove("in-app");
+  appView.style.display="none";
+  gateView.style.display="flex";
+  mobileBarBtn.textContent="Enroll";
+  setTabs(mode||"login");
+  window.scrollTo({top:0,behavior:"auto"});
+}
+$("logoutBtn").addEventListener("click",function(){openGate("login")});
+mobileBarBtn.addEventListener("click",function(){
+  if(currentUser){var n=$("notes");if(n)n.scrollIntoView({behavior:"smooth"})}
+  else{window.scrollTo({top:0,behavior:"smooth"});var f=$("enName");if(f)f.focus()}
+});
+
+/* show/hide password */
+document.querySelectorAll("[data-toggle-pass]").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    var inp=$(btn.getAttribute("data-toggle-pass"));
+    var show=inp.type==="password";
+    inp.type=show?"text":"password";
+    btn.textContent=show?"Hide":"Show";
+  });
+});
+
+/* ---------- confirm enrollment ---------- */
+function enrollmentText(acc){
+  return "Hello Maria! I have enrolled in the SkillX Course.\nName: "+acc.name+"\nContact: "+acc.contact+"\nCity: "+acc.city+"\nTopic: "+acc.topic;
+}
+function showConfirm(account){
+  pending=account;confirmSent=false;
+  enrollForm.hidden=true;loginForm.hidden=true;verifyPanel.hidden=true;confirmPanel.hidden=false;
+  $("confirmName").textContent=account.name;
+  $("confirmContact").textContent=account.contact;
+  $("confirmCity").textContent=account.city;
+  $("confirmTopic").textContent=account.topic;
+  $("confirmWhatsAppBtn").href=waLink(enrollmentText(account));
+  $("confirmEmailBtn").href="mailto:mariaasif854@gmail.com?subject="+encodeURIComponent("SkillX Course Enrollment — "+account.name)+"&body="+encodeURIComponent(enrollmentText(account));
+  $("confirmContinueBtn").disabled=true;
+  $("confirmSentNote").classList.remove("show");
+  $("confirmTitle").focus();
+}
+function markConfirmSent(){
+  confirmSent=true;
+  $("confirmContinueBtn").disabled=false;
+  $("confirmSentNote").classList.add("show");
+}
+$("confirmWhatsAppBtn").addEventListener("click",markConfirmSent);
+$("confirmEmailBtn").addEventListener("click",markConfirmSent);
+$("confirmContinueBtn").addEventListener("click",function(){
+  if(!confirmSent||!pending)return;
+  pending.confirmed=true;saveAccount(pending);
+  showVerify(pending,pending.code,"Thank you for confirming! Enter the 4-digit code below to verify your account.");
+});
+
+/* ---------- verify ---------- */
+function newCode(){return String(Math.floor(1000+Math.random()*9000))}
+function showVerify(account,code,msg){
+  pending=account;currentCode=code;
+  enrollForm.hidden=true;loginForm.hidden=true;verifyPanel.hidden=false;confirmPanel.hidden=true;
+  $("verifyCodeShown").textContent=code;
+  $("verifyNote").textContent=msg||"Your account is ready! Enter the 4-digit code below.";
+  hideErr($("verifyErr"));
+  $("verifyCodeInput").value="";
+  $("verifyCodeInput").focus();
+}
+$("resendCode").addEventListener("click",function(){
+  if(!pending)return;
+  var code=newCode();currentCode=code;pending.code=code;saveAccount(pending);
+  $("verifyCodeShown").textContent=code;
+  $("verifyNote").textContent="A new code has been created — enter that code below.";
+  $("verifyCodeInput").focus();
+});
+$("verifyForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  var val=$("verifyCodeInput").value.trim();
+  if(val!==currentCode){showErr($("verifyErr"),"The code is incorrect — enter the 4-digit code shown above again.");return}
+  /* Enrollment was already confirmed on the confirm step, so do not send it again.
+     Only send here if this account somehow reached verification without confirming. */
+  var needsNotify=pending&&!pending.confirmed;
+  pending.verified=true;pending.code=null;saveAccount(pending);
+  if(needsNotify){
+    var text=enrollmentText(pending);
+    var w=window.open(waLink(text),"_blank");
+    if(!w){/* popup blocked: user can use the WhatsApp button */}
+  }
+  openApp(pending);
+});
+
+/* ---------- enroll ---------- */
+enrollForm.addEventListener("submit",function(e){
+  e.preventDefault();
+  var name=$("enName").value.trim();
+  var contact=$("enContact").value.trim();
+  var city=$("enCity").value.trim();
+  var topic=$("enTopic").value;
+  var pass=$("enPass").value;
+  var err=$("enrollErr");
+  if(name.length<2){showErr(err,"Enter your full name.");return}
+  if(!validContact(contact)){showErr(err,"Enter a valid Google email or mobile number (for example, email@example.com or 03xx-xxxxxxx).");return}
+  if(city.length<2){showErr(err,"Enter your city.");return}
+  if(!topic){showErr(err,"Choose a topic.");return}
+  if(pass.length<4){showErr(err,"Choose a password of at least 4 characters.");return}
+  hideErr(err);
+  var code=newCode();
+  var account={name:name,contact:contact,city:city,topic:topic,passHash:hashStr(pass),code:code,verified:false,confirmed:false};
+  saveAccount(account);
+  showConfirm(account);
+});
+
+/* ---------- login ---------- */
+loginForm.addEventListener("submit",function(e){
+  e.preventDefault();
+  var contact=$("loContact").value.trim();
+  var pass=$("loPass").value;
+  var err=$("loginErr");
+  var acc=loadAccount();
+  if(!acc||acc.contact.toLowerCase()!==contact.toLowerCase()){
+    showErr(err,"No account was found for this email/number — please enroll first.");return;
+  }
+  if(acc.passHash!==hashStr(pass)){showErr(err,"The password is incorrect — please try again.");return}
+  hideErr(err);
+  if(!acc.verified){
+    var code=newCode();acc.code=code;saveAccount(acc);
+    if(!acc.confirmed){showConfirm(acc);return}
+    showVerify(acc,code,"Your account was not verified yet — enter the code below to verify it.");
+    return;
+  }
+  openApp(acc);
+});
+
+/* prefill login if an account exists on this device */
+(function(){
+  var acc=loadAccount();
+  if(acc){setTabs("login");$("loContact").value=acc.contact}
+  else{setTabs("enroll")}
+})();
+
+/* ---------- scroll progress + back to top ---------- */
+var toTop=$("toTop");
+window.addEventListener("scroll",function(){
+  var h=document.documentElement;
+  var max=h.scrollHeight-h.clientHeight;
+  var p=max>0?(h.scrollTop/max)*100:0;
+  $("progressBar").style.width=p+"%";
+  if(h.scrollTop>500){toTop.classList.add("show")}else{toTop.classList.remove("show")}
+},{passive:true});
+toTop.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});
+
+/* ---------- reveal ---------- */
+var revealObs=null;
+function observeReveals(){
+  if(!("IntersectionObserver" in window)){document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("in")});return}
+  if(revealObs)revealObs.disconnect();
+  revealObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");revealObs.unobserve(en.target)}});
+  },{threshold:.08});
+  document.querySelectorAll(".reveal:not(.in)").forEach(function(el){revealObs.observe(el)});
+}
+observeReveals();
+
+/* ---------- countdown to 8:30 PM PKT ---------- */
+function pad(n){return (n<10?"0":"")+n}
+function tickCountdown(){
+  try{
+    var now=new Date();
+    var parts=new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Karachi",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).formatToParts(now);
+    var get=function(t){for(var i=0;i<parts.length;i++){if(parts[i].type===t)return parts[i].value}return "0"};
+    var y=+get("year"),mo=+get("month"),d=+get("day"),h=+get("hour")%24,mi=+get("minute"),s=+get("second");
+    /* PKT wall-clock -> UTC ms: Asia/Karachi is UTC+5 */
+    var nowMs=Date.UTC(y,mo-1,d,h,mi,s)-5*3600*1000;
+    var targetMs=Date.UTC(y,mo-1,d,20,30,0)-5*3600*1000;
+    if(targetMs<=nowMs){targetMs+=24*3600*1000}
+    var diff=Math.max(0,targetMs-nowMs);
+    var hh=Math.floor(diff/3600000),mm=Math.floor(diff%3600000/60000),ss=Math.floor(diff%60000/1000);
+    $("cdH").textContent=pad(hh);$("cdM").textContent=pad(mm);$("cdS").textContent=pad(ss);
+  }catch(e){
+    $("cdH").textContent="--";$("cdM").textContent="--";$("cdS").textContent="--";
+  }
+}
+tickCountdown();setInterval(tickCountdown,1000);
+
+/* ---------- chapters ---------- */
+var CHAPTERS=[
+  "About the Course — Training Plan",
+  "Prompt Engineering Journey — Studio Setup",
+  "AI Video Editor — Copy. Paste. Prompt. Create.",
+  "Master Prompt Thumbnail Class",
+  "How to Create a Movie — AI Movie Workflow",
+  "YouTube Automation — Foundations",
+  "Scriptwriting — The 5-Step Formula",
+  "Prompt Engineering — Practice Work",
+  "YouTube Automation Roadmap — Podcast-Style Channel Blueprint",
+  "Airdrop Notes — Crypto Airdrops, Earn From Mobile",
+  "Week 1: AI Foundations + Design",
+  "Week 2: Advanced AI Production",
+  "Week 3: YouTube + TikTok Automation",
+  "Week 4: Digital Products, Etsy + Career"
+];
+var currentCh=1,readSet={};
+function loadProgress(){
+  readSet={};
+  try{
+    var raw=localStorage.getItem(LS_PROG);
+    if(raw){var arr=JSON.parse(raw);arr.forEach(function(n){readSet[n]=true})}
+  }catch(e){}
+}
+function saveProgress(){
+  try{localStorage.setItem(LS_PROG,JSON.stringify(Object.keys(readSet).map(Number)))}catch(e){}
+}
+function buildChapterList(){
+  var list=$("chapterList");list.innerHTML="";
+  CHAPTERS.forEach(function(title,i){
+    var n=i+1;
+    var b=document.createElement("button");
+    b.type="button";b.className="ch-btn";b.setAttribute("aria-current",n===currentCh?"true":"false");
+    b.innerHTML='<span class="n">'+pad(n)+'</span><span>'+title+'</span>'+(readSet[n]?'<span class="done" aria-label="Read">✓</span>':"");
+    b.addEventListener("click",function(){showChapter(n)});
+    list.appendChild(b);
+  });
+}
+function updateProgressUI(){
+  var count=Object.keys(readSet).length;
+  var pct=Math.round(count/14*100);
+  $("progressText").textContent=count+" / 14 chapters";
+  $("progressPct").textContent=pct+"%";
+  $("pbarFill").style.width=pct+"%";
+  $("pbarWrap").setAttribute("aria-valuenow",String(count));
+}
+function showChapter(n){
+  currentCh=n;
+  document.querySelectorAll(".reader article").forEach(function(a){
+    a.classList.toggle("active",+a.getAttribute("data-ch")===n);
+  });
+  buildChapterList();
+  updateMarkBtn();
+  var reader=document.querySelector(".reader");
+  if(reader&&currentUser){reader.scrollIntoView({behavior:"smooth",block:"start"})}
+}
+function updateMarkBtn(){
+  var btn=$("markReadBtn");
+  if(readSet[currentCh]){btn.classList.add("read");btn.textContent="✓ Read — done"}
+  else{btn.classList.remove("read");btn.textContent="✓ Mark as read"}
+}
+function initProgress(){loadProgress();buildChapterList();updateProgressUI();updateMarkBtn()}
+$("markReadBtn").addEventListener("click",function(){
+  if(readSet[currentCh]){delete readSet[currentCh]}else{readSet[currentCh]=true}
+  saveProgress();buildChapterList();updateProgressUI();updateMarkBtn();
+});
+$("prevCh").addEventListener("click",function(){if(currentCh>1)showChapter(currentCh-1)});
+$("nextCh").addEventListener("click",function(){if(currentCh<14)showChapter(currentCh+1)});
+initProgress();
+
+/* ---------- quiz ---------- */
+$("quizForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  var blocks=document.querySelectorAll(".q-block");
+  var score=0,answered=0;
+  blocks.forEach(function(block,idx){
+    var name="q"+(idx+1);
+    var chosen=document.querySelector('input[name="'+name+'"]:checked');
+    block.querySelectorAll("label").forEach(function(l){l.classList.remove("correct","wrong")});
+    block.querySelector(".q-expl").classList.remove("show");
+    if(chosen){
+      answered++;
+      var labels=block.querySelectorAll("label");
+      labels.forEach(function(l){
+        var inp=l.querySelector("input");
+        if(inp.value===block.getAttribute("data-answer"))l.classList.add("correct");
+      });
+      if(chosen.value===block.getAttribute("data-answer")){score++}
+      else{chosen.closest("label").classList.add("wrong")}
+      block.querySelector(".q-expl").classList.add("show");
+    }
+  });
+  var res=$("quizResult");
+  if(answered<5){
+    res.textContent="Please answer all 5 questions first — "+answered+" / 5 answered.";
+  }else{
+    var msg="Your score: "+score+" / 5. ";
+    if(score===5)msg+="Excellent! You remember the notes perfectly.";
+    else if(score>=3)msg+="Good work! Read the chapters for the ones you missed again.";
+    else msg+="No problem — read the Notes Book chapters again and try once more.";
+    res.textContent=msg;
+  }
+  res.classList.add("show");
+});
+$("quizReset").addEventListener("click",function(){
+  document.querySelectorAll('#quizForm input[type="radio"]').forEach(function(r){r.checked=false});
+  document.querySelectorAll(".q-opts label").forEach(function(l){l.classList.remove("correct","wrong")});
+  document.querySelectorAll(".q-expl").forEach(function(x){x.classList.remove("show")});
+  $("quizResult").classList.remove("show");$("quizResult").textContent="";
+});
+
+/* ---------- comments ---------- */
+var chosenStars=0;
+var starBtns=document.querySelectorAll(".star-btn");
+starBtns.forEach(function(btn){
+  btn.addEventListener("click",function(){
+    chosenStars=+btn.getAttribute("data-stars");
+    starBtns.forEach(function(b){
+      b.setAttribute("aria-pressed",+b.getAttribute("data-stars")<=chosenStars?"true":"false");
+    });
+    $("starsHint").textContent=chosenStars+" / 5 stars selected.";
+  });
+});
+function starText(n){var s="";for(var i=0;i<n;i++)s+="★";for(var j=n;j<5;j++)s+="☆";return s}
+$("commentForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  var name=$("cmName").value.trim();
+  var text=$("cmText").value.trim();
+  var err=$("commentErr");
+  if(name.length<2){showErr(err,"Enter your name.");return}
+  if(chosenStars===0){showErr(err,"Choose your stars first (1 to 5).");return}
+  if(text.length<3){showErr(err,"Write your comment.");return}
+  hideErr(err);
+  var empty=$("commentEmpty");if(empty)empty.remove();
+  var item=document.createElement("div");
+  item.className="comment-item";
+  var meta=document.createElement("div");meta.className="meta";
+  var b=document.createElement("b");b.textContent=name;
+  var sp=document.createElement("span");sp.textContent=starText(chosenStars);
+  meta.appendChild(b);meta.appendChild(sp);
+  var p=document.createElement("p");p.textContent=text;
+  item.appendChild(meta);item.appendChild(p);
+  $("commentList").prepend(item);
+  var msg="Hello Maria! Here is my comment about the SkillX Course Notes:\nName: "+name+"\nStars: "+chosenStars+" / 5\nComment: "+text;
+  window.open(waLink(msg),"_blank");
+  $("cmName").value="";$("cmText").value="";chosenStars=0;
+  starBtns.forEach(function(x){x.setAttribute("aria-pressed","false")});
+  $("starsHint").textContent="Choose your stars — none selected yet.";
+});
+})();
+</script>
+</body>
+</html>
