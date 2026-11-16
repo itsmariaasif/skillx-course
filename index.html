@@ -10,6 +10,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<!-- Google Analytics (GA4) — code laga diya gaya hai.
+     Sirf ek cheez baaki hai: Maria apna Measurement ID (G-XXXXXXXXXX) yahan daalein.
+     ID analytics.google.com par mariaasif854@gmail.com se free banta hai — steps neeche Visitors section mein hain.
+     ID daalte hi gtag.js load hoga aur har visitor count hona shuru ho jayega. -->
+<script>
+  window.GA_MEASUREMENT_ID = ""; /* <-- Maria: apna G- wala ID yahan daalo, masalan "G-ABC123XYZ" */
+  (function () {
+    var id = window.GA_MEASUREMENT_ID;
+    if (!id || id.indexOf("G-") !== 0) return;
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", id);
+  })();
+</script>
 <style>
 :root{
   --bg:#060606; --bg2:#0b0b0b; --card:#111111; --card2:#161616;
@@ -284,6 +303,25 @@ details.faq p{color:var(--muted);margin:10px 0 2px;font-size:15px}
 .price-line div b{display:block;font-size:22px;color:var(--lime)}
 .price-line div span{color:var(--muted);font-size:13px}
 
+/* visitors / analytics */
+.visitor-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.visitor-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px}
+.visitor-card h3{font-size:18px;margin:0 0 6px}
+.visitor-card p{color:var(--muted);font-size:14.5px;margin:0 0 12px}
+.visitor-badge-big{background:#0a0a0a;border:1px solid var(--line2);border-radius:var(--r-md);padding:18px;text-align:center;margin:0 0 12px}
+.visitor-badge-big img{margin:0 auto;height:28px}
+.visitor-badge-big .vb-note{color:var(--dim);font-size:12.5px;margin-top:9px}
+.ga-status{display:inline-flex;align-items:center;gap:8px;background:var(--lime-soft);border:1px solid rgba(182,243,74,.45);color:#dff5b0;border-radius:999px;padding:7px 13px;font-weight:700;font-size:13px;margin:0 0 14px}
+.ga-status .dot{width:8px;height:8px;border-radius:50%;background:var(--lime);flex:none}
+.ga-steps{margin:0 0 16px;padding-left:20px;color:var(--silver);font-size:14.5px;display:grid;gap:7px}
+.ga-steps b{color:var(--ink)}
+.repo-table{width:100%;border-collapse:collapse;font-size:14.5px;margin:0 0 10px}
+.repo-table th,.repo-table td{border-top:1px solid var(--line);padding:10px 8px;text-align:left;vertical-align:top}
+.repo-table th{color:var(--muted);font-size:13px;letter-spacing:.06em;text-transform:uppercase;border-top:0}
+.repo-table td b{color:var(--lime);font-size:17px}
+.repo-table td span{color:var(--muted);font-size:13px;display:block}
+@media (max-width:900px){.visitor-grid{grid-template-columns:1fr}}
+
 /* footer */
 footer{border-top:1px solid var(--line);padding:34px 0 110px;color:var(--muted);font-size:14px}
 .foot-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
@@ -487,6 +525,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 110px;color:var(--muted);
         <a href="#schedule">Schedule</a>
         <a href="#quiz">Quiz</a>
         <a href="#comments">Comments</a>
+        <a href="#visitors">Visitors</a>
         <a href="#faq">FAQ</a>
         <a href="#coming-soon">2.0</a>
       </div>
@@ -1065,6 +1104,51 @@ footer{border-top:1px solid var(--line);padding:34px 0 110px;color:var(--muted);
       </div>
     </section>
 
+    <!-- VISITORS / ANALYTICS -->
+    <section class="block wrap" id="visitors" aria-label="Visitor count" style="padding-top:0">
+      <div class="sec-head reveal">
+        <div class="kicker">Visitors</div>
+        <h2 class="sec">Kitne Log Aaye — Visitor Count</h2>
+        <p class="sec-sub">Ye counter is page ke har khulne par +1 hota hai — taake pata chale kitne log aaye aur kitno ne page dekha. Apne khud ke checks bhi is mein ginay jate hain.</p>
+      </div>
+      <div class="visitor-grid reveal">
+        <div class="visitor-card">
+          <h3>Is Page Ke Total Views</h3>
+          <p>Neeche wala number live hai — jab bhi koi ye page kholta hai, number barh jata hai. Page dobara khol kar dekho, number update milega.</p>
+          <div class="visitor-badge-big">
+            <img src="https://visitor-badge.laobi.icu/badge?page_id=skillx-course-maria&amp;left_color=%23555555&amp;right_color=%2316a34a" alt="Total visitors counter for this SkillX Course page" height="28" />
+            <div class="vb-note">Total page views · har visit par +1</div>
+          </div>
+          <p style="margin:0">Yehi counter page ke bilkul neeche footer mein bhi laga hai, taake har visitor ko dikhe.</p>
+        </div>
+        <div class="visitor-card">
+          <h3>Google Analytics — Agla Step</h3>
+          <div><span class="ga-status"><span class="dot"></span>Code laga diya gaya hai — ID baaki hai</span></div>
+          <p>Google Analytics se roz ke <b style="color:var(--ink)">alag-alag visitors</b>, sheher aur mobile/computer ki tafseel milti hai. Us ke liye sirf aik dafa ye karna hai — sirf Maria khud apne Google login se kar sakti hain:</p>
+          <ol class="ga-steps">
+            <li><b>analytics.google.com</b> kholo aur <b>mariaasif854@gmail.com</b> se sign in karo.</li>
+            <li><b>Create → Property</b> mein website ka naam likho — wahan aik <b>Measurement ID (G-…)</b> milega.</li>
+            <li>Wo <b>G- wala ID</b> mujhe bhej do — main is page mein daal dungi, phir counting khud shuru ho jayegi aur aap Analytics mein roz ke numbers dekh sakogi.</li>
+          </ol>
+          <a class="btn btn-lime btn-sm" href="https://analytics.google.com" target="_blank" rel="noopener">Google Analytics Kholo →</a>
+        </div>
+      </div>
+      <div class="visitor-card reveal" style="margin-top:14px">
+        <h3>GitHub Par Ab Tak Ke Numbers — 16 Nov 2026</h3>
+        <p>Ye numbers aapke bheje hue screenshots se hain. Ye GitHub <b style="color:var(--ink)">repo page</b> ke views hain — live website par aane wale log in mein shamil nahi, is liye asal visitor ginati ke liye upar wala counter aur Analytics hai.</p>
+        <div style="overflow-x:auto">
+          <table class="repo-table">
+            <thead><tr><th>Repo</th><th>Views</th><th>Unique Visitors</th></tr></thead>
+            <tbody>
+              <tr><td><b style="color:var(--ink);font-size:14.5px">itsmariaasif.github.io</b><span>Services website ka repo · pichle 14 din</span></td><td><b>11</b><span>10 views 2 Nov · 1 view 8 Nov</span></td><td><b>1</b></td></tr>
+              <tr><td><b style="color:var(--ink);font-size:14.5px">skillx-course</b><span>SkillX course ka repo · pichle 14 din</span></td><td><b>9</b><span>Content views ka total · upar wala hissa screenshot mein cut gaya tha</span></td><td><b>1</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin:0">Sach baat: sirf 1 unique visitor ka matlab hai ye zyada tar humare apne checks hain — bahar ke log abhi kam aa rahe hain. Website ko zyada share karne se ye numbers barhenge.</p>
+      </div>
+    </section>
+
     <!-- FAQ -->
     <section class="block wrap" id="faq" aria-label="Frequently asked questions" style="padding-top:0">
       <div class="sec-head reveal">
@@ -1091,6 +1175,10 @@ footer{border-top:1px solid var(--line);padding:34px 0 110px;color:var(--muted);
         <details class="faq">
           <summary>Where is my account saved?</summary>
           <p>Your account is saved only on this phone/computer. You will need to enroll again on another device. Your password is never sent to Maria.</p>
+        </details>
+        <details class="faq">
+          <summary>How do I see how many people visited this page?</summary>
+          <p>See the <b>Visitors</b> section above — the live counter goes up by 1 every time this page is opened, and the same counter is in the footer. For separate daily visitors, Google Analytics code is added to this page; it starts counting once Maria adds her Measurement ID (G-…) — the 3 steps are in the Visitors section.</p>
         </details>
         <details class="faq">
           <summary>When is SkillX AI Pro 2.0 coming?</summary>
@@ -1133,6 +1221,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 110px;color:var(--muted);
         Email: <a href="mailto:mariaasif854@gmail.com">mariaasif854@gmail.com</a>
       </div>
     </div>
+    <div style="text-align:center;margin-top:18px"><img src="https://visitor-badge.laobi.icu/badge?page_id=skillx-course-maria&amp;left_color=%23555555&amp;right_color=%2316a34a" alt="Visitors" height="20"></div>
   </footer>
 </div>
 
